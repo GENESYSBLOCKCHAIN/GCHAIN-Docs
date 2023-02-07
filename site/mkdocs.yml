@@ -1,0 +1,112 @@
+site_name: Genesys Chain Docs
+site_description: Genesys Chain Technology Documentation
+site_author: Genesys Chain Community
+
+site_url: https://docs.genesys.network
+use_directory_urls: false
+theme:
+  name: material
+
+repo_name: shree
+repo_url:https://github.com/githubusername/githubrepo
+
+nav:
+  - Home: index.md
+  - Genesys Chain:
+    - Introduction: smart-chain/guides/nc-intro.md
+    - Concepts:
+      - Consensus: smart-chain/guides/concepts/consensus.md
+      - Comparison: smart-chain/guides/general.md
+      - Genesis File: smart-chain/guides/concepts/genesis.md
+      - System Contract: smart-chain/guides/concepts/system-contract.md
+      - Governance: smart-chain/guides/concepts/nc-gov.md
+    - Ecosystem:https://github.com/githubusername/githubrepo/nc-ecosystem
+    - Gnosis: smart-chain/developer/gnosis.md
+    - Staking:
+      - Validator:
+        - Overview: smart-chain/validator/overview.md
+        - Validator Guides: smart-chain/validator/guideline.md
+        - Validator Security: smart-chain/validator/security.md
+        - Chaindata Snapshot: smart-chain/developer/snapshot.md       
+        - Testnet : smart-chain/validator/testnet.md
+        - Validator FAQ: faq/nc/val.md
+      - Delegator Guide: smart-chain/delegator/del-guide.md
+    - Cross Chain Apps: smart-chain/guides/cross-chain.md
+    - Genesys Chain Mainnet Explorer: https://genesys.network/
+    - Genesys Chain Testnet Explorer: https://testnet-explorer.genesys.network/
+    - Wallet: smart-chain/wallet.md
+  - GSYS  Developers:
+    - General:
+      - Create Wallet: smart-chain/developer/create-wallet.md
+      - Smart Contract: https://solidity.readthedocs.io/en/v0.7.1/
+      - Remix : https://remix.ethereum.org/
+      - Web3JS: https://web3js.readthedocs.io/en/v1.2.11/
+      - Truffle: https://www.trufflesuite.com/docs/teams/quickstart
+    - Ecosystem:https://github.com/githubusername/githubrepo-develop-ecosystem
+    - Deploy:
+      - Remix: smart-chain/developer/deploy/remix.md
+      - Truffle: smart-chain/developer/deploy/truffle.md
+      - Truffle Verify: smart-chain/developer/deploy/truffle-verify.md
+      - HardHat: smart-chain/developer/deploy/hardhat.md
+      - HardHat Verify: smart-chain/developer/deploy/hardhat-verify.md
+      - Verify Proxy Contract: smart-chain/developer/upgrade/verify-proxy.md
+    - Tools:
+      - Faucet: https://testnet-explorer.genesys.network/faucet-smart
+      - Gas Price: https://genesys.network/chart/gasprice
+      - Wallet Provider for DApps: smart-chain/wallet/arkane-developer.md
+    - BLUE20 Tokens:
+      - Introduction: smart-chain/developer/BLUE20.md
+      - Issue Token: smart-chain/developer/issue-BLUE20.md
+      - Bind Token:
+        - Introduction: smart-chain/developer/bind/tokens-cross-chain.md
+        - Bind Token: smart-chain/developer/bind/bind-tokens.md
+        - Mirror Token: smart-chain/developer/bind/mirror.md
+        - Sync Supply: smart-chain/developer/bind/sync.md
+      - Cross-chain Transfer: smart-chain/developer/cross-chain-transfer.md
+      - Bind Token Tool:https://github.com/githubusername/githubrepo/token-bind-tool
+    - Blockchain Details:
+      - Genesys Chain Fullnode: smart-chain/developer/fullnode.md
+      - Chaindata Snapshot: smart-chain/developer/snapshot.md
+      - GSYS  Relayer: smart-chain/developer/nc-relayer.md
+      - RPC: smart-chain/developer/rpc.md
+    - Oracles:
+      - Band Protocol Integration: smart-chain/developer/oracle/band.md
+      - Chainlink Protocol Integration: smart-chain/developer/oracle/link.md
+      - Chainlink Protocol VRF: https://docs.chain.link/docs/chainlink-vrf
+    - Tutorial:
+      - Deploy NFT:  smart-chain/developer/BLUE721.md
+      - Verify Contract on genesys.network: smart-chain/developer/deploy/verify.md
+      - Local GSYS  Network: smart-chain/developer/deploy/local.md
+      - Proxy Contract: smart-chain/developer/upgrade/proxy.md
+    - BUIDL Program: https://www.genesys.network/en/blog/421499824684900972/Bridging-DeFi-and-CeFi-Introducing-a-$100M-Support-Fund-for-DeFi-Projects-on-GSYS-Smart-Chain
+  - Wallets:
+    - Genesys Chain Wallet Support: smart-chain/wallet.md
+    - Genesys Chain Wallet Tutorial:
+      - How to create a GSYS  wallet: smart-chain/wallet/arkane.md
+      - Math Wallet User Guide: smart-chain/wallet/math-resource.md
+      - Staking with extension wallet: smart-chain/wallet/staking.md
+      - How to install GSYS Extension Wallet Manually: smart-chain/wallet/manual.md
+      - How to use ezDeFi Wallet for Genesys Chain: smart-chain/wallet/ezdefi.md
+  - Genesys Chain Explorer: https://genesys.network
+  - Genesys Chain Forum: https://community.genesys.network/
+  - Genesys Chain Faucet: https://testnet-explorer.genesys.network/faucet
+  - The Genesys Chain Developer Group : https://t.me/
+  - The Genesys Chain Telegram Group : https://t.me/
+  - Twitter: https://twitter.com/genesys_exchange
+  - Telegram Announcement Channel English: https://t.me/GenesysNews
+  - FAQ:
+    - Genesys Chain FAQ:
+      - General:
+        - Info: faq/nc/general.md
+        - Genesys Chain: faq/nc/bsc.md
+        - Ecosystem: faq/nc/eco.md
+      - Token:
+        - Intro: faq/nc/token.md
+        - BEPs: faq/nc/bep.md
+      - Staking:
+        - Validator: faq/nc/val.md
+        - Delegator: faq/nc/del.md
+        - Staking parameters: smart-chain/validator/Parameters.md
+      - Crosschain: faq/nc/cross.md
+    - More Help: resources.md
+    - Contributing: CONTRIBUTING.md

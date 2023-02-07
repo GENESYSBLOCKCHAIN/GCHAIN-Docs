@@ -1,0 +1,2686 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/guides/concepts/bc-staking.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Staking - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#staking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Staking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/wallet/arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-chain/wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#posa-consensus-of-genesys-chain" class="md-nav__link">
+    PoSA Consensus of Genesys Chain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#staking-on-genesys-chain" class="md-nav__link">
+    Staking on Genesys Chain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#staking-economics" class="md-nav__link">
+    Staking Economics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ranking-algorithm" class="md-nav__link">
+    Ranking Algorithm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reward-distrubution" class="md-nav__link">
+    Reward Distrubution
+  </a>
+  
+    <nav class="md-nav" aria-label="Reward Distrubution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-workflow" class="md-nav__link">
+    Main Workflow:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    Error handling:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fee-table" class="md-nav__link">
+    Fee Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    Download
+  </a>
+  
+    <nav class="md-nav" aria-label="Download">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mainnet" class="md-nav__link">
+    Mainnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testnet" class="md-nav__link">
+    Testnet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-gsys-validator" class="md-nav__link">
+    Create GSYS Validator
+  </a>
+  
+    <nav class="md-nav" aria-label="Create GSYS Validator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-nc-create-validator" class="md-nav__link">
+    Parameters for nc-create-validator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-gsys-validator" class="md-nav__link">
+    Edit GSYS Validator
+  </a>
+  
+    <nav class="md-nav" aria-label="Edit GSYS Validator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-nc-edit-validator" class="md-nav__link">
+    Parameters for nc-edit-validator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegate-gsys" class="md-nav__link">
+    Delegate GSYS
+  </a>
+  
+    <nav class="md-nav" aria-label="Delegate GSYS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-nc-delegate" class="md-nav__link">
+    Parameters for staking nc-delegate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redelegate-gsys" class="md-nav__link">
+    Redelegate GSYS
+  </a>
+  
+    <nav class="md-nav" aria-label="Redelegate GSYS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-nc-redelegate" class="md-nav__link">
+    Parameters for staking nc-redelegate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_3" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undelegate-gsys" class="md-nav__link">
+    Undelegate GSYS
+  </a>
+  
+    <nav class="md-nav" aria-label="Undelegate GSYS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-nc-unbond" class="md-nav__link">
+    Parameters for staking nc-unbond
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-vaildator-by-operator" class="md-nav__link">
+    Query side chain vaildator by operator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain vaildator by operator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-validator" class="md-nav__link">
+    Parameters for staking side-validator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_5" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-delegation-by-delegator-and-operator" class="md-nav__link">
+    Query side chain delegation by delegator and operator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain delegation by delegator and operator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-delegation" class="md-nav__link">
+    Parameters for staking side-delegation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_6" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-delegations-by-delegator" class="md-nav__link">
+    Query side chain delegations by delegator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain delegations by delegator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-delegations" class="md-nav__link">
+    Parameters for staking side-delegations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_7" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-unbonding-delegation" class="md-nav__link">
+    Query side chain unbonding delegation
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain unbonding delegation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-unbonding-delegation" class="md-nav__link">
+    Parameters for staking side-unbonding-delegation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-unbonding-delegations-by-delegator" class="md-nav__link">
+    Query side chain unbonding delegations by delegator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain unbonding delegations by delegator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-unbonding-delegations" class="md-nav__link">
+    Parameters for staking side-unbonding-delegations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-unbonding-delegations-by-validator" class="md-nav__link">
+    Query side chain unbonding delegations by validator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain unbonding delegations by validator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-val-unbonding-delegations" class="md-nav__link">
+    Parameters for staking side-val-unbonding-delegations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-re-delegation" class="md-nav__link">
+    Query side chain re-delegation
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain re-delegation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-redelegation" class="md-nav__link">
+    Parameters for staking side-redelegation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-re-delegations-by-delegator" class="md-nav__link">
+    Query side chain re-delegations by delegator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain re-delegations by delegator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-redelegations" class="md-nav__link">
+    Parameters for staking side-redelegations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-re-delegations-by-validator" class="md-nav__link">
+    Query side chain re-delegations by validator
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain re-delegations by validator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-val-redelegations" class="md-nav__link">
+    Parameters for staking side-val-redelegations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-staking-pool" class="md-nav__link">
+    Query side chain staking pool
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain staking pool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-pool" class="md-nav__link">
+    Parameters for staking side-pool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-top-validators" class="md-nav__link">
+    Query side chain top validators
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain top validators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-top-validators" class="md-nav__link">
+    Parameters for  staking side-top-validators
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-side-chain-validators-count" class="md-nav__link">
+    Query side chain validators count
+  </a>
+  
+    <nav class="md-nav" aria-label="Query side chain validators count">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-staking-side-validators-count" class="md-nav__link">
+    Parameters for staking side-validators-count
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/guides/concepts/bc-staking.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="staking">Staking</h1>
+<h2 id="posa-consensus-of-genesys-chain">PoSA Consensus of Genesys Chain</h2>
+<p><a href="https://community.genesys.network/topic/2686">Genesys Chain</a> is an innovative solution to bring programmability and interoperability to <a href="https://www.genesys.network">Genesys Chain</a>. Genesys Chain relies on a system of 21 validators with Proof of <a href="../../smart-chain/guides/concepts/consensus.html">Staked Authority (PoSA) consensus</a> that can support short block time and lower fees. The most bonded validator candidates of staking will become validators and produce blocks. The double-sign detection and other slashing logic guarantee security, stability, and chain finality.</p>
+<h2 id="staking-on-genesys-chain">Staking on Genesys Chain</h2>
+<p>Ideally, Genesys Chain should build such staking and reward logic into the blockchain, and automatically distribute rewards as the blocking happens. <a href="https://hub.cosmos.network/">Cosmos Hub</a>, who also build on top of Tendermint consensus like Genesys Chain, works in this way.</p>
+<p>However, as GSYS wants to remain compatible with Ethereum as much as possible. On the other side, Genesys Chain already has a staking module and could be extended to support both BC and TC. In this way, all the staking related operations are recorded in BC. Once there are any changes about TC's validator set or voting power, the new message will be transferred to GSYS through cross-chain communication.</p>
+<h2 id="staking-economics">Staking Economics</h2>
+<ol>
+<li>The staking token is <strong><a href="https://www.genesys.network/cn/trade/GSYS_USDT">GSYS</a></strong>, as it is a native token on both blockchains anyway</li>
+<li>The staking, i.e. token bond and delegation actions and records for TC, happens on BC.</li>
+<li>The GSYS validator set is determined by its staking and delegation logic, via a staking module built on BC for TC, and propagated every day UTC 00:00 from BC to GSYS via Cross-Chain communication.</li>
+<li>The reward distribution happens on BC around every day UTC 00:00 after.</li>
+</ol>
+<h2 id="ranking-algorithm">Ranking Algorithm</h2>
+<p>Validators are ranked by their power and operator address. The more its delegation tokens, the higher ranking is. If two validators get the same amount of delegated tokens, validator with smaller address bytes has higher ranking.</p>
+<h2 id="reward-distrubution">Reward Distrubution</h2>
+<p>Since GSYS uses PoSA as its consensus engine, all the delegators of validators can receive some share of the validators’ reward.</p>
+<p>However, the rewards(fees) are collected on GSYS while the staking info is stored on BC.</p>
+<p>So the main idea is we transfer all the rewards from GSYS to BC once every day and execute the distribution on BC.</p>
+<h3 id="main-workflow">Main Workflow:</h3>
+<ol>
+<li>ValidatorSet is updated in BreatheBlock, the frequency is once a day. let’s assume it happens on day N.</li>
+<li>The info of validator set changes of day N would be transmitted to NCthrough interchain communication.</li>
+<li>The validator set contract on GSYS would receive and update the new validatorset. After that, it would trigger several interchain transfer to transfer the fees that every <strong>previous validators</strong> collected in this period to their addresses on BC. we can see that fees belongs to the validators of day N-1.</li>
+<li>To make some room for the error handling, we distribute the fees of day N-1 in the next breathe block (day N+1).</li>
+</ol>
+<h3 id="details">Details</h3>
+<ol>
+<li>even if validator set or any their voting powers are not changed on that day, we still transmit the validator set info to TC.</li>
+<li>the validator set contract maintains the history of the fees that every validators collected after the previous period(We define the <strong>period</strong> as the time between two contract calls of validator set changes). The actual fees are collected on the contract address.</li>
+<li>
+<p>the interchain transfer to send fees from the contract address to each validator’s distribution address on BC. Note the distribution address is <strong>auto generated</strong> on BC when handling the create-validator tx, so no private key is corresponded to that address and no one except the distribution module can move the tokens on that address. This address is displayed as <strong>Distribution Addr</strong> in validator info.
+<div class="highlight"><pre><span></span><code>Validator
+Fee Address: tbnb15mgzha93ny878kuvjl0pnqmjygwccdadpw5dxf
+Operator Address: bva15mgzha93ny878kuvjl0pnqmjygwccdad08uecu
+Validator Consensus Pubkey:
+Jailed: <span class="nb">false</span>
+Status: Bonded
+Tokens: <span class="m">5000000000000</span>
+Delegator Shares: <span class="m">5000000000000</span>
+Description: <span class="o">{</span>Elbrus <span class="s2">&quot;&quot;</span> www.genesys.network This is Elbrus org on chapel network.<span class="o">}</span>
+Bond Height: <span class="m">74158</span>
+Unbonding Height: <span class="m">0</span>
+Minimum Unbonding Time: <span class="m">1970</span>-01-01 <span class="m">00</span>:00:00 +0000 UTC
+Commission: <span class="o">{</span>rate: <span class="m">75000000</span>, maxRate: <span class="m">90000000</span>, maxChangeRate: <span class="m">3000000</span>, updateTime: <span class="m">2020</span>-05-22 <span class="m">12</span>:24:19.478568234 +0000 UTC<span class="o">}</span>
+Distribution Addr: tbnb1srkkfjk8qctvvy4s3cllhpnkz9679jphr30t2c
+Side Chain Id: chapel
+Consensus Addr on Side Chain: 0xF474Cf03ccEfF28aBc65C9cbaE594F725c80e12d
+Fee Addr on Side Chain: 0xe61a183325A18a173319dD8E19c8d069459E2175
+</code></pre></div></p>
+</li>
+<li>
+<p>we have a lower limit of the value of interchain transfer, at least the value can cover the transfer fee. Also, interchain transfer will only allow max 8 decimals for the amount. The tiny left part would be kept in the contract or put into the system reward pool.</p>
+</li>
+<li>the reward: (totalfees * (1-commissionRate)) would be distributed in proportion to the delegations, the left part would be sent to the validator fee address.</li>
+</ol>
+<h3 id="error-handling">Error handling:</h3>
+<ol>
+<li>if the cross-chain transfer failed, the tokens would be sent back to a specified address(i.e. the  <code>SideFeeAddr</code> in the store section, validators can change this address via the EditValidator tx). After that, validators can manually deposit the tokens to its own <code>DistributionAddr</code> on BC via Transfer tx. We do not force the validator to do so, but it’s an indicator that can help delegators choose validators.</li>
+</ol>
+<h2 id="fee-table">Fee Table</h2>
+<table>
+<thead>
+<tr>
+<th>Transaction Type</th>
+<th>Pay in GSYS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create A New Smart Chain Validator</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Edit Smart Chain Validator Information</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Delegate Smart Chain Validator</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>Redelegate Smart Chain Validator</td>
+<td>0.003</td>
+</tr>
+<tr>
+<td>Undelegate Smart Chain Validator</td>
+<td>0.002</td>
+</tr>
+</tbody>
+</table>
+<h2 id="commands">Commands</h2>
+<h3 id="download">Download</h3>
+<h4 id="mainnet">Mainnet</h4>
+<p>Please download <code>eth-cli</code> binary from <a href="https://github.com/githubusername/githubrepo/node-binary/tree/master/cli/prod">here</a></p>
+<h4 id="testnet">Testnet</h4>
+<p>Please download <code>eth-cli</code> binary from <a href="https://github.com/githubusername/githubrepo/node-binary/tree/master/cli/testnet">here</a></p>
+<h3 id="create-gsys-validator">Create GSYS Validator</h3>
+<h4 id="parameters-for-nc-create-validator">Parameters for nc-create-validator</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comment</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--from</td>
+<td>bnb1xxx/tbnb1xxx</td>
+<td>address of private key  with which to sign this tx, also be used as the validator operator address</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--address-delegator</td>
+<td>bnb1xxx/tbnb1xxx</td>
+<td>optional, bech32 address  of the self-delegator. if not provided, --from address will be used as  self-delegator.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--amount</td>
+<td>2000000000000:GSYS  (means 20000 GSYS)</td>
+<td>self-delegation amount,  it has 8 decimal places</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--moniker</td>
+<td>myval1</td>
+<td>validator name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--identity</td>
+<td>xxx</td>
+<td>optional identity  signature (ex. UPort or Keybase)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--website</td>
+<td>www.example.com</td>
+<td>optional website</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--details</td>
+<td>some details</td>
+<td>optional details</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--commission-rate</td>
+<td>80000000(that means 0.8  or 80%)</td>
+<td>The initial commission  rate percentage, it has 8 decimal places.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--commission-max-rate</td>
+<td>95000000  (0.95 or 95%)</td>
+<td>The maximum commission  rate percentage, it has 8 decimal places. You can not update this rate.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--commission-max-change-rate</td>
+<td>3000000   (0.03 or 3%)</td>
+<td>The maximum commission  change rate percentage (per day). You can not update this rate.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-cons-addr</td>
+<td>0x1234abcd</td>
+<td>consensus address of the  validator on side chain, please use hex format prefixed with 0x</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-fee-addr</td>
+<td>0xabcd1234</td>
+<td>address that validator  collects fee rewards on side chain, please use hex format prefixed with 0x.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--home</td>
+<td>/path/to/cli_home</td>
+<td>home directory of eth-cli  data and config, default to “~/.eth-cli”</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Some address parameters we need to highlight here:</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DelegatorAddr</td>
+<td>Self  delegator address. For BC, this address also used to collect fees.</td>
+</tr>
+<tr>
+<td>ValidatorAddr</td>
+<td>validator  operator’s address, used in governance ops like voting.</td>
+</tr>
+<tr>
+<td>SideConsAddr</td>
+<td>block  producer’s address on side chain, i.e. consensus address. BC has another  parameter named <code>PubKey</code>, here SideConsAddr replaced that for TC.  Only  GSYS validators need this parameter.</td>
+</tr>
+<tr>
+<td>SideFeeAddr</td>
+<td>fees  are collected in this address on TC,   Only  GSYS validators need this parameter. Due to different token units, there are some GSYS left as dust when sending block rewards from Genesys Chain to Genesys Chain. Those GSYS will be sent to fee address.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples">Examples</h4>
+<ol>
+<li>
+<p>If you want to create a validator with the same operator address and self-delegator address, you only need one signature for this transaction.</p>
+</li>
+<li>
+<p>Mainnet</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+eth-cli staking nc-create-validator --chain-id GSYS-Chain-Tigris --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --amount <span class="m">1000000000000</span>:GSYS --moniker bsc_v1 --identity <span class="s2">&quot;xxx&quot;</span> --website <span class="s2">&quot;[www.example.](http://www.genesys.network)com&quot;</span> --details <span class="s2">&quot;bsc validator node 1&quot;</span> --commission-rate <span class="m">80000000</span> --commission-max-rate <span class="m">95000000</span> --commission-max-change-rate <span class="m">3000000</span> --side-chain-id bsc --side-cons-addr 0x9B24Ee0BfBf708b541fB65b6087D6e991a0D11A8 --side-fee-addr 0x5885d2A27Bd4c6D111B83Bc3fC359eD951E8E6F8 --home ~/home_cli
+
+<span class="c1">## testnet</span>
+eth-cli staking nc-create-validator --chain-id GSYS-Chain-Ganges --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --amount <span class="m">2000000000000</span>:GSYS --moniker bsc_v1 --identity <span class="s2">&quot;xxx&quot;</span> --website <span class="s2">&quot;[www.example.](http://www.genesys.network)com&quot;</span> --details <span class="s2">&quot;bsc validator node 1&quot;</span> --commission-rate <span class="m">80000000</span> --commission-max-rate <span class="m">95000000</span> --commission-max-change-rate <span class="m">3000000</span> --side-chain-id chapel --side-cons-addr 0x9B24Ee0BfBf708b541fB65b6087D6e991a0D11A8 --side-fee-addr 0x5885d2A27Bd4c6D111B83Bc3fC359eD951E8E6F8 --home ~/home_cli
+</code></pre></div>
+<ul>
+<li>Testnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+eth-cli staking nc-create-validator --chain-id GSYS-Chain-Tigris --from tbnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --amount <span class="m">2000000000000</span>:GSYS --moniker bsc_v1 --identity <span class="s2">&quot;xxx&quot;</span> --website <span class="s2">&quot;[www.example.](http://www.genesys.network)com&quot;</span> --details <span class="s2">&quot;bsc validator node 1&quot;</span> --commission-rate <span class="m">80000000</span> --commission-max-rate <span class="m">95000000</span> --commission-max-change-rate <span class="m">3000000</span> --side-chain-id bsc --side-cons-addr 0x9B24Ee0BfBf708b541fB65b6087D6e991a0D11A8 --side-fee-addr 0x5885d2A27Bd4c6D111B83Bc3fC359eD951E8E6F8 --home ~/home_cli
+
+<span class="c1">## testnet</span>
+eth-cli staking nc-create-validator --chain-id GSYS-Chain-Ganges --from tbnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --amount <span class="m">2000000000000</span>:GSYS --moniker bsc_v1 --identity <span class="s2">&quot;xxx&quot;</span> --website <span class="s2">&quot;[www.example.](http://www.genesys.network)com&quot;</span> --details <span class="s2">&quot;bsc validator node 1&quot;</span> --commission-rate <span class="m">80000000</span> --commission-max-rate <span class="m">95000000</span> --commission-max-change-rate <span class="m">3000000</span> --side-chain-id chapel --side-cons-addr 0x9B24Ee0BfBf708b541fB65b6087D6e991a0D11A8 --side-fee-addr 0x5885d2A27Bd4c6D111B83Bc3fC359eD951E8E6F8 --home ~/home_cli
+</code></pre></div>
+<ol>
+<li>If you want a separated self-delegator address, both <code>self-delegator</code> and <code>validator operator</code> need to sign this transaction. Here we need to use another two commands to support multiple signatures.</li>
+</ol>
+<p>a. use the following commands appended with a parameter “<strong>--generate-only</strong>” and save the result to a json file which would be used to be signed.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+eth-cli staking nc-create-validator --chain-id GSYS-Chain-Tigris --from <span class="o">{</span>validator-operator-address<span class="o">}</span>  --address-delegator <span class="o">{</span>delegator-address<span class="o">}</span> --amount <span class="m">5000000000000</span>:GSYS --moniker bsc_v1 --identity <span class="s2">&quot;xxx&quot;</span> --website <span class="s2">&quot;www.example.com&quot;</span> --details <span class="s2">&quot;bsc validator node 1&quot;</span> --commission-rate <span class="m">80000000</span> --commission-max-rate <span class="m">95000000</span> --commission-max-change-rate <span class="m">3000000</span> --side-chain-id bsc --side-cons-addr 0x9B24Ee0BfBf708b541fB65b6087D6e991a0D11A8 --side-fee-addr 0x5885d2A27Bd4c6D111B83Bc3fC359eD951E8E6F8 --home ~/home_cli --generate-only &gt; unsigned.json
+
+<span class="c1">## testnet</span>
+eth-cli staking nc-create-validator --chain-id GSYS-Chain-Ganges --from <span class="o">{</span>validator-operator-address<span class="o">}</span>  --address-delegator <span class="o">{</span>delegator-address<span class="o">}</span> --amount <span class="m">5000000000000</span>:GSYS --moniker bsc_v1 --identity <span class="s2">&quot;xxx&quot;</span> --website <span class="s2">&quot;www.example.com&quot;</span> --details <span class="s2">&quot;bsc validator node 1&quot;</span> --commission-rate <span class="m">80000000</span> --commission-max-rate <span class="m">95000000</span> --commission-max-change-rate <span class="m">3000000</span> --side-chain-id chapel --side-cons-addr 0x9B24Ee0BfBf708b541fB65b6087D6e991a0D11A8 --side-fee-addr 0x5885d2A27Bd4c6D111B83Bc3fC359eD951E8E6F8 --home ~/home_cli --generate-only &gt; unsigned.json
+</code></pre></div>
+<p>b. both validator operator(--from) and self-delegator(--address-delegator) use “<strong>eth-cli sign</strong>” command to sign the file from a).</p>
+<p><strong>Delegator</strong> address need to sign <code>unsigned.json</code> first</p>
+<ul>
+<li>Online Mode</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+./eth-cli sign unsigned.json --from <span class="o">{</span>delegator-address<span class="o">}</span> --node dataseed4.genesys.network:80 --chain-id GSYS-Chain-Tigris &gt;&gt; delegator-signed.json
+
+<span class="c1">## testnet</span>
+./eth-cli sign unsigned.json --from <span class="o">{</span>delegator-address<span class="o">}</span> --node data-seed-pre-0-s3.genesys.network:80 --chain-id GSYS-Chain-Ganges &gt;&gt; delegator-signed.json
+</code></pre></div>
+<ul>
+<li>Offline Mode</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+./eth-cli sign unsigned.json --account-number &lt;delegator-account-number&gt; --sequence &lt;address-sequence&gt; --chain-id GSYS-Chain-Tigris --offline --name <span class="o">{</span>delegator-address<span class="o">}</span> &gt;&gt; delegator-signed.json
+
+<span class="c1">## testnet</span>
+./eth-cli sign unsigned.json --account-number &lt;delegator-account-number&gt; --sequence &lt;address-sequence&gt; --chain-id GSYS-Chain-Ganges --offline --name <span class="o">{</span>delegator-address<span class="o">}</span> &gt;&gt; delegator-signed.json
+</code></pre></div>
+<p>Then, <strong>validator</strong> operator addres will sign it later.</p>
+<ul>
+<li>Online Mode</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+./eth-cli sign delegator-signed.json --from <span class="o">{</span>validator-address<span class="o">}</span> --node dataseed4.genesys.network:80 --chain-id GSYS-Chain-Tigris &gt;&gt; both-signed.json
+
+<span class="c1">## testnet</span>
+./eth-cli sign delegator-signed.json --from <span class="o">{</span>validator-address<span class="o">}</span> --node data-seed-pre-0-s3.genesys.network:80 --chain-id GSYS-Chain-Ganges &gt;&gt; both-signed.json
+</code></pre></div>
+<ul>
+<li>Offline Mode</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+./eth-cli sign delegator-signed.json --account-number &lt;validator-account-number&gt; --sequence &lt;address-sequence&gt; --chain-id GSYS-Chain-Tigris --offline --name <span class="o">{</span>validator-address<span class="o">}</span> &gt;&gt; both-signed.json
+
+<span class="c1">## testnet</span>
+./eth-cli sign delegator-signed.json --account-number &lt;validator-account-number&gt; --sequence &lt;address-sequence&gt; --chain-id GSYS-Chain-Ganges --offline --name <span class="o">{</span>validator-address<span class="o">}</span> &gt;&gt; both-signed.json
+</code></pre></div>
+<p>c. use “<strong>eth-cli broadcast</strong>” to send the transaction from above to the blockchain nodes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+./eth-cli broadcast both-signed.json  --node dataseed4.genesys.network:80 --chain-id GSYS-Chain-Tigris
+
+<span class="c1">## testnet</span>
+./eth-cli broadcast both-signed.json  --node data-seed-pre-0-s3.genesys.network:80 --chain-id GSYS-Chain-Ganges
+</code></pre></div>
+<p>Verify your transaction in <a href="https://gchainexplorer.genesys.network/">mainnet-explorer</a> or <a href="https://testnet-explorer.genesys.network/">testnet-explorer</a></p>
+<h3 id="edit-gsys-validator">Edit GSYS Validator</h3>
+<h4 id="parameters-for-nc-edit-validator">Parameters for nc-edit-validator</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--from</td>
+<td>bnb1xxx/tbnb1xxx</td>
+<td>address of private key  with which to sign this tx, that also indicate the validator that you want to  edit.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--moniker</td>
+<td>myval1</td>
+<td>validator name (default  "[do-not-modify]")</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--identity</td>
+<td>xxx</td>
+<td>optional identity  signature (ex. UPort or Keybase) (default "[do-not-modify]")</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--website</td>
+<td>www.example.com</td>
+<td>optional website (default  "[do-not-modify]")</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--details</td>
+<td>some details</td>
+<td>optional details (default  "[do-not-modify]")</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--commission-rate</td>
+<td>80000000(that means 0.8  or 80%)</td>
+<td>The new commission rate  percentage</td>
+<td>No</td>
+</tr>
+<tr>
+<td>--side-fee-addr</td>
+<td>0xabcd1234</td>
+<td>address that validator  collects fee rewards on side chain, please use hex format prefixed with 0x.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_1">Examples</h4>
+<ul>
+<li>Mainnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking nc-edit-validator --chain-id GSYS-Chain-Tigris --side-chain-id bsc --moniker bsc_v1_new --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --home ~/home_cli
+</code></pre></div>
+<ul>
+<li>Testnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking nc-edit-validator --chain-id GSYS-Chain-Ganges --side-chain-id chapel --moniker bsc_v1_new --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --home ~/home_cli
+</code></pre></div>
+<h3 id="delegate-gsys">Delegate GSYS</h3>
+<h4 id="parameters-for-staking-nc-delegate">Parameters for staking nc-delegate</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--from</td>
+<td>bnb1xxx/tbnb1xxx</td>
+<td>address of private key  with which to sign this tx, that is also the delegator address</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--validator</td>
+<td>bva1xxx</td>
+<td>bech32 address of the  validator, starts with “bva”</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--amount</td>
+<td>1000000000:GSYS  (10 GSYS)</td>
+<td>delegation amount, it has  8 decimal places</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_2">Examples</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">## mainnet</span>
+eth-cli staking nc-delegate --chain-id GSYS-Chain-Tigris --side-chain-id bsc --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --validator bva1tfh30c67mkzfz06as2hk0756mgdx8mgypqldvm --amount <span class="m">1000000000</span>:GSYS --home ~/home_cli
+
+<span class="c1">## testnet</span>
+eth-cli staking nc-delegate --chain-id GSYS-Chain-Ganges --side-chain-id chapel --from tbnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --validator bva1tfh30c67mkzfz06as2hk0756mgdx8mgypqldvm --amount <span class="m">1000000000</span>:GSYS --home ~/home_cli
+</code></pre></div>
+<h3 id="redelegate-gsys">Redelegate GSYS</h3>
+<h4 id="parameters-for-staking-nc-redelegate">Parameters for staking nc-redelegate</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--from</td>
+<td>bnb1xxx/tbnb1xxx</td>
+<td>address of private key  with which to sign this tx, that is also the delegator address</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--addr-validator-source</td>
+<td>bva1xxx</td>
+<td>bech32 address of the  source validator, starts with “bva”</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--addr-validator-dest</td>
+<td>bva1yyy</td>
+<td>bech32 address of the  destination validator, starts with “bva”</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--amount</td>
+<td>1000000000:GSYS  (10 GSYS)</td>
+<td>delegation amount, it has  8 decimal places</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_3">Examples</h4>
+<ul>
+<li>Mainnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking nc-redelegate --chain-id GSYS-Chain-Tigris --side-chain-id bsc --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --addr-validator-source bva1tfh30c67mkzfz06as2hk0756mgdx8mgypqldvm --addr-validator-dest bva1jam9wn8drs97mskmwg7jwm09kuy5yjumvvx6r2 --amount1000000000:GSYS --home ~/home_cli
+</code></pre></div>
+<ul>
+<li>Testnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking nc-redelegate --chain-id GSYS-Chain-Ganges --side-chain-id chapel --from tbnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --addr-validator-source bva1tfh30c67mkzfz06as2hk0756mgdx8mgypqldvm --addr-validator-dest bva1jam9wn8drs97mskmwg7jwm09kuy5yjumvvx6r2 --amount1000000000:GSYS --home ~/home_cli
+</code></pre></div>
+<h3 id="undelegate-gsys">Undelegate GSYS</h3>
+<h4 id="parameters-for-staking-nc-unbond">Parameters for staking nc-unbond</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--from</td>
+<td>bnb1xxx/tbnb1xxx</td>
+<td>address of private key  with which to sign this tx, that is also the delegator address</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--validator</td>
+<td>bva1xxx</td>
+<td>bech32 address of the  validator, starts with “bva”</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--amount</td>
+<td>1000000000:GSYS  (10 GSYS)</td>
+<td>delegation amount, it has  8 decimal places</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_4">Examples</h4>
+<ul>
+<li>Mainnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking nc-unbond --chain-id GSYS-Chain-Ganges --side-chain-id chapel --from bnb1tfh30c67mkzfz06as2hk0756mgdx8mgypu7ajl --validator bva1tfh30c67mkzfz06as2hk0756mgdx8mgypqldvm --amount <span class="m">1000000000</span>:GSYS --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-vaildator-by-operator">Query side chain vaildator by operator</h3>
+<h4 id="parameters-for-staking-side-validator">Parameters for staking side-validator</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_5">Examples</h4>
+<ul>
+<li>Mainnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-validator bva1hz5sg3u0v4gq2veyw5355z7qx6y7uuqhcuzf3f  --side-chain-id bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-delegation-by-delegator-and-operator">Query side chain delegation by delegator and operator</h3>
+<h4 id="parameters-for-staking-side-delegation">Parameters for staking side-delegation</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_6">Examples</h4>
+<ul>
+<li>Mainnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-delegation bnb1hz5sg3u0v4gq2veyw5355z7qx6y7uuqhcqre0d bva1hz5sg3u0v4gq2veyw5355z7qx6y7uuqhcuzf3f --chain-id<span class="o">=</span>GSYS-Chain-Tigris --side-chain-id bsc --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-delegations-by-delegator">Query side chain delegations by delegator</h3>
+<h4 id="parameters-for-staking-side-delegations">Parameters for staking side-delegations</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree  chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side  chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_7">Examples</h4>
+<ul>
+<li>Mainnet</li>
+</ul>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-delegations bnb1hz5sg3u0v4gq2veyw5355z7qx6y7uuqhcqre0d --side-chain-id bsc --node<span class="o">=</span><span class="m">0</span>.0.0.0:26657 --chain-id<span class="o">=</span>GSYS-Chain-Tigris --trust-node
+</code></pre></div>
+<h3 id="query-side-chain-unbonding-delegation">Query side chain unbonding delegation</h3>
+<h4 id="parameters-for-staking-side-unbonding-delegation">Parameters for staking side-unbonding-delegation</h4>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-unbonding-delegation <span class="o">[</span>delegator-addr<span class="o">]</span> <span class="o">[</span>operator-addr<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>bsc/chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong>
+<div class="highlight"><pre><span></span><code>eth-cli staking  side-unbonding-delegation bnb1rtzy6szuyzcj4amfn6uarvne8a5epxrdklwhhj bva12hlquylu78cjylk5zshxpdj6hf3t0tahqmr98n --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div></p>
+<h3 id="query-side-chain-unbonding-delegations-by-delegator">Query side chain unbonding delegations by delegator</h3>
+<h4 id="parameters-for-staking-side-unbonding-delegations">Parameters for staking side-unbonding-delegations</h4>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-unbonding-delegations <span class="o">[</span>delegator-addr<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking  side-unbonding-delegations bnb1rtzy6szuyzcj4amfn6uarvne8a5epxrdklwhhj --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-unbonding-delegations-by-validator">Query side chain unbonding delegations by validator</h3>
+<h4 id="parameters-for-staking-side-val-unbonding-delegations">Parameters for staking side-val-unbonding-delegations</h4>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-val-unbonding-delegation <span class="o">[</span>operator-addr<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>bsc/chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-val-unbonding-delegations bva12hlquylu78cjylk5zshxpdj6hf3t0tahqmr98n --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div></p>
+<h3 id="query-side-chain-re-delegation">Query side chain re-delegation</h3>
+<h4 id="parameters-for-staking-side-redelegation">Parameters for staking side-redelegation</h4>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-redelegation <span class="o">[</span>delegator-addr<span class="o">]</span> <span class="o">[</span>src-operator-addr<span class="o">]</span> <span class="o">[</span>dst-operator-addr<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>bsc/chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking  side-redelegation bnb1rtzy6szuyzcj4amfn6uarvne8a5epxrdklwhhj bva12hlquylu78cjylk5zshxpdj6hf3t0tahqmr98n  bva1hz5sg3u0v4gq2veyw5355z7qx6y7uuqhcuzf3f --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-re-delegations-by-delegator">Query side chain re-delegations by delegator</h3>
+<h4 id="parameters-for-staking-side-redelegations">Parameters for staking side-redelegations</h4>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-redelegations <span class="o">[</span>delegator-addr<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>bsc/chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-redelegations bnb1rtzy6szuyzcj4amfn6uarvne8a5epxrdklwhhj --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-re-delegations-by-validator">Query side chain re-delegations by validator</h3>
+<h4 id="parameters-for-staking-side-val-redelegations">Parameters for staking side-val-redelegations</h4>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-val-redelegations <span class="o">[</span>operator-addr<span class="o">]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></div>
+| <strong>parameter  name</strong> | <strong>example</strong>       | <strong>comments</strong>                                        | <strong>required</strong> |
+| ------------------- | ----------------- | --------------------------------------------------- | ------------ |
+| --chan-id           | GSYS-Chain-XXX | the chain id of shree chain                       | Yes          |
+| --side-chain-id     | bsc/chapel            | chain-id of the side chain the validator belongs to | Yes          |</p>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-val-redelegations bva12hlquylu78cjylk5zshxpdj6hf3t0tahqmr98n --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-staking-pool">Query side chain staking pool</h3>
+<h4 id="parameters-for-staking-side-pool">Parameters for staking side-pool</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>bsc/chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking     side-pool --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home     ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-top-validators">Query side chain top validators</h3>
+<h4 id="parameters-for-staking-side-top-validators">Parameters for  staking side-top-validators</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--top</td>
+<td>10</td>
+<td>number of validators to be returned. set as maximum number of  validators  by default</td>
+<td>Option</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking side-top-validators --top <span class="m">10</span> --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+<h3 id="query-side-chain-validators-count">Query side chain validators count</h3>
+<h4 id="parameters-for-staking-side-validators-count">Parameters for staking side-validators-count</h4>
+<table>
+<thead>
+<tr>
+<th><strong>parameter  name</strong></th>
+<th><strong>example</strong></th>
+<th><strong>comments</strong></th>
+<th><strong>required</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--chan-id</td>
+<td>GSYS-Chain-XXX</td>
+<td>the chain id of shree chain</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--side-chain-id</td>
+<td>chapel</td>
+<td>chain-id of the side chain the validator belongs to</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>--jail-involved</td>
+<td>true</td>
+<td>if true, meaning that the jailed validators will be involved to count</td>
+<td>Option</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For example</strong></p>
+<div class="highlight"><pre><span></span><code>eth-cli staking  side-validators-count --jail-involved --side-chain-id<span class="o">=</span>bsc --chain-id<span class="o">=</span>GSYS-Chain-Tigris --home ~/home_cli
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

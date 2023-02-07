@@ -1,0 +1,1654 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/governance.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Governance - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#governance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Governance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet/arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#primer-on-governance" class="md-nav__link">
+    Primer on Governance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-workflow" class="md-nav__link">
+    Proposal Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposal Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-parameters" class="md-nav__link">
+    Global Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposal-parameters" class="md-nav__link">
+    Proposal Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participate-in-governance" class="md-nav__link">
+    Participate in Governance
+  </a>
+  
+    <nav class="md-nav" aria-label="Participate in Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit-a-list-proposal" class="md-nav__link">
+    Submit a List Proposal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit-a-delist-proposal" class="md-nav__link">
+    Submit a Delist Proposal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-deposit-for-a-proposal-optional" class="md-nav__link">
+    Add deposit for a Proposal (Optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-information-of-a-proposal" class="md-nav__link">
+    Query Information of a Proposal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-votes-of-a-proposal" class="md-nav__link">
+    Query votes of a Proposal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-notions" class="md-nav__link">
+    Key Notions
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Notions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vote-options" class="md-nav__link">
+    Vote options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quorum" class="md-nav__link">
+    Quorum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veto" class="md-nav__link">
+    Veto
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threshold" class="md-nav__link">
+    Threshold
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tally-result-example" class="md-nav__link">
+    Tally Result Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/governance.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="governance">Governance</h1>
+<h2 id="primer-on-governance">Primer on Governance</h2>
+<p>Genesys Chain has its own built-in governance module that lets GSYS holders submit proposals for adding trade pairs. In order for the proposal to be open for voting, it needs to come with a <code>deposit</code> that is greater than a parameter called <code>Deposit</code>. The <code>deposit</code> need not be provided in its entirety by the submitter. If the initial proposer's <code>deposit</code> is not sufficient, the proposal enters the <code>deposit_period</code> status. Then, any GSYS holder can increase the deposit by sending a <code>depositTx</code>.
+A purely-code-controlled escrow account will be used to hold deposits during voting period. It is a kind of account which is derived from a hard-coded string in shree chain protocol. This kind of account doesn't have its own private key and it's only controlled by code of the protocol. The code for calculating escrow account is the same that is used in <a href="https://github.com/cosmos/cosmos-sdk/blob/82a2c5d6d86ffd761f0162b93f0aaa57b7f66fe7/x/supply/internal/types/account.go#L40">cosmos-sdk</a>:
+<div class="highlight"><pre><span></span><code>DepositedCoinsAccAddr = sdk.AccAddress(crypto.AddressHash([]byte(&quot;Genesys ChainDepositedCoins&quot;)))
+</code></pre></div>
+The account for mainnet is: <strong>bnb1vu5max8wqn997ayhrrys0drpll2rlz4dh39s3h</strong> and the account for testnet is: <strong>tbnb1vu5max8wqn997ayhrrys0drpll2rlz4deyv53x</strong>. Once the swap is claimed or refunded, the fund will be transferred from the purely-code-controlled escrow account to client accounts.</p>
+<h2 id="proposal-workflow">Proposal Workflow</h2>
+<p><img alt="workflow" src="assets/workflow.jpg" /></p>
+<h3 id="global-parameters">Global Parameters</h3>
+<ul>
+<li><code>min-deposit</code>: The threshold for submitting a proposal on mainnet is <strong>1000GSYS</strong>, and the threshold for submitting a proposal on testnet is <strong>2000GSYS</strong></li>
+<li><code>deposit_period</code>: This is a global parameter and the value for mainnet is two days and testnet is two week. It means the time to deposit enough GSYS tokens is two days in mainnet and two weeks in testnet.</li>
+<li><code>fee</code>: Checkout the fee of governance-related transactions <a href="trading-spec.html">here</a></li>
+</ul>
+<h3 id="proposal-parameters">Proposal Parameters</h3>
+<ul>
+<li><code>deposit</code> : your input must be larger than <code>min-deposit</code>.</li>
+<li><code>voting-period</code>: This is the time for validators to vote, your input in seconds, if you omit this field, the default voting period is one week.</li>
+<li><code>expire-time</code>: This is the time for you to send list transaction if your proposal passed. This time cannot be earlier than current time.</li>
+</ul>
+<h3 id="participate-in-governance">Participate in Governance</h3>
+<h4 id="tools">Tools</h4>
+<p>Please use this <a href="https://github.com/githubusername/githubrepo/node-binary/tree/master/tools">tool</a> for generating</p>
+<p>You can also use <a href="https://community.genesys.network/topic/2487/how-to-manage-your-bep2-token-on-shree-chain-in-web-wallet">Web Wallet</a> for token management operations.</p>
+<h4 id="submit-a-list-proposal">Submit a List Proposal</h4>
+<p>To add a new trading pairs, you can run the following command:<br/>
+Please note:<br/></p>
+<ul>
+<li><code>--init-price</code> is boosted by <strong>1e8</strong> for decimal part, such as 100000000, is 1 GSYS</li>
+<li><code>--from</code>: put your key name for the address / key, you can only list with the owners address of your token.</li>
+<li><code>--expire-time</code>: expire time is the deadline after which you will no longer be able to list your token though your proposal is passed.</li>
+<li><code>--voting-period</code>: The voting period is for validators to vote. The unit is in seconds and the default voting period is one week. The max voting period is two weeks. The votes from validators will be tallied after the voting period ends.</li>
+<li><code>--title</code>: title of proposal</li>
+<li><code>--quote-asset-symbol</code>: the quote asset symbol. When you first list a BEP2 token on GSYS DEX, it has to be put in GSYS market first. Thus, you should set <code>quote-asset-symbol</code> to <strong>GSYS</strong> in your first proposal, then your BEP2 asset can be list against <a href="https://gchainexplorer.genesys.network/asset/BUSD-BD1">BUSD-BD1</a> and other stablecoins.</li>
+<li><code>--base-asset-symbol</code>: the asset symbol you want to list</li>
+</ul>
+<p>Please note that the deposit and init-price are boosted by <strong>1e8</strong> for decimal part.</p>
+<p>Example on <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli gov submit-list-proposal --from <span class="nb">test</span> --deposit <span class="m">100000000000</span>:GSYS
+--base-asset-symbol AAA-254 --quote-asset-symbol GSYS --init-price <span class="m">100000000</span> --title <span class="s2">&quot;list AAA-254/GSYS&quot;</span>
+--description <span class="s2">&quot;list AAA-254/GSYS&quot;</span> --expire-time <span class="m">1570665600</span> --chain-id GSYS-Chain-Tigris --node https://dataseed5.defibit.io:443 --voting-period <span class="m">604800</span> --json
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli gov submit-list-proposal --from <span class="nb">test</span> --deposit <span class="m">200000000000</span>:GSYS
+--base-asset-symbol AAA-254 --quote-asset-symbol GSYS --init-price <span class="m">100000000</span> --title <span class="s2">&quot;list AAA-254/GSYS&quot;</span>
+--description <span class="s2">&quot;list AAA-254/GSYS&quot;</span> --expire-time <span class="m">1570665600</span> --chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80 --json --voting-period <span class="m">604800</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip<p>As discussed in <a href="https://github.com/githubusername/githubrepo/BEPs/blob/master/BEP70.md">BEP-70</a>, BUSD is one of the most influential stable coins worldwide and the most dominant stable coin on Genesys Chain. BEP2 token issuers can list their assets against <a href="https://gchainexplorer.genesys.network/asset/BUSD-BD1">BUSD-BD1</a> without the requirement of creating GSYS pair first. Listing and trading BUSD pairs on Genesys Chain will facilitate token owners and exchange traders, making the markets more liquid and healthier.  BEP70 is already implemented and has been activated after Testnet Nightingale Upgrade. Genesys Chain Mainnet will be upgraded to support BEP-70 soon.</p>
+</p>
+</div>
+<h4 id="submit-a-delist-proposal">Submit a Delist Proposal</h4>
+<p>In testnet, only validators can make a delist proposal. To add a new delist pairs, a validator can run the following command:<br/></p>
+<p>Please note:</p>
+<ul>
+<li><code>--quote-asset-symbol</code>: the quote asset symbol</li>
+<li><code>--base-asset-symbol</code>: the asset symbol you want to delist</li>
+<li><code>--from</code>: put your key name for the address key, you can only list with the owners address of your token.</li>
+<li><code>--voting-period</code>: The voting period is for validators to vote. The unit is in seconds and the default voting period is one week. The max voting period is two weeks. The votes from validators will be tallied after the voting period ends.</li>
+<li><code>--justification</code>: reason for proposal</li>
+<li><code>--depodit</code>: this field will indicate how much tokens will be used as deposit for this proposal. Governance module will transfer deposit tokens to a purely-code-controlled escrow account and before the lock time expires. The account for mainnet is:<em>bnb1vu5max8wqn997ayhrrys0drpll2rlz4dh39s3h</em>  and the account for testnet is: <em>tbnb1vu5max8wqn997ayhrrys0drpll2rlz4deyv53x</em></li>
+</ul>
+<p>Example on <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>eth-cli gov submit-delist-proposal --title <span class="s2">&quot;delist EDD-0AC&quot;</span> --voting-period <span class="m">7200</span> --deposit <span class="s2">&quot;200000000000:GSYS&quot;</span> --justification <span class="s2">&quot; justification &quot;</span> --base-asset-symbol EDD-0AC --quote-asset-symbol GSYS --from &lt;your-key-name&gt; --chain-id GSYS-Chain-Tigris --node https://dataseed5.defibit.io:443 --trust-node
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>eth-cli gov submit-delist-proposal --title <span class="s2">&quot;delist EDD-0AC&quot;</span> --voting-period <span class="m">7200</span> --deposit <span class="s2">&quot;200000000000:GSYS&quot;</span> --justification <span class="s2">&quot; justification &quot;</span> --base-asset-symbol EDD-0AC --quote-asset-symbol GSYS --from &lt;your-key-name&gt; --chain-id GSYS-Chain-Ganges --trust-node --node https://seed-pre-s3.genesys.network:443
+</code></pre></div>
+<h4 id="add-deposit-for-a-proposal-optional">Add deposit for a Proposal (Optional)</h4>
+<p>If the initial deposit for your proposal in <code>submit-list-proposal</code> is not enough, you can increase the deposit with <code>deposit</code> operation. In current Genesys Chain Mainnet, the max deposit period is <strong>two days</strong>. After submitting a proposal, you have two days to increase your deposit, otherwise your proposal will not go into the voting period and gets rejected directly.</p>
+<p>Please note the amount is boosted by <strong>1e8</strong> for decimal part.</p>
+<p>Example on <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>eth-cli gov deposit --from name --proposal-id &lt;proposl-ID&gt; --deposit &lt;amount&gt;:GSYS --chain-id GSYS-Chain-Tigris --node https://dataseed5.defibit.io:443
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>eth-cli gov deposit --from name --proposal-id &lt;proposl-ID&gt; --deposit &lt;amount&gt;:GSYS --chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80
+</code></pre></div>
+<h4 id="query-information-of-a-proposal">Query Information of a Proposal</h4>
+<p>To see detailed information of specific proposal, you can run the following command:</p>
+<p>Example on <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli gov query-proposal --proposal-id &lt;proposal-ID&gt; --chain-id GSYS-Chain-Tigris --node https://dataseed5.defibit.io:443
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli gov query-proposal --proposal-id &lt;proposal-ID&gt; --chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80
+</code></pre></div>
+<p>Example output:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gov/TextProposal&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;list CZZ-696/GSYS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;base_asset_symbol\&quot;:\&quot;CZZ-696\&quot;,\&quot;quote_asset_symbol\&quot;:\&quot;GSYS\&quot;,\&quot;init_price\&quot;:100000000,\&quot;description\&quot;:\&quot;list CZZ-696/GSYS\&quot;,\&quot;expire_time\&quot;:\&quot;2019-03-21T09:00:00+09:00\&quot;}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ListTradingPair&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Passed&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tally_result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;yes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1100000000000&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;abstain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;no&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;no_with_veto&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;submit_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-03-07T20:49:03.504103408Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;total_deposit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;denom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GSYS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200000000000&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voting_start_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2019-03-07T21:01:36.159585594Z&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+You can get the information about the proposal's status and its tally result this way.</p>
+<h4 id="query-votes-of-a-proposal">Query votes of a Proposal</h4>
+<p>You can track the votes for your proposal with the following command:</p>
+<p>Example on <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli gov query-votes --proposal-id <span class="m">272</span> --chain-id GSYS-Chain-Tigris --node https://dataseed5.defibit.io:443
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli gov query-votes --proposal-id <span class="m">272</span> --chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80
+</code></pre></div>
+<p>Example output:
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb1q82g2h9q0kfe7sysnj5w7nlak92csfjztymp39&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb1r6l0c0fxu458hlq6m7amkcltj8nufyl9mr2wm5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb193t8pkhm2sxw5uy5ypesygda8rzsk25ge3e9y7&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb183nch8pn3f698vurrqypq3s254slcane2t66aj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb12hlquylu78cjylk5zshxpdj6hf3t0tahwjt3ex&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb1vehecekrsks5sshcwvxyeyrd469j9wvcqm37yu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb108drn8exhv72tp40e6lq9z949nnjj54yzqrr2f&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb135mqtf9gef879nmjlpwz6u2fzqcw4qlzrqwgvw&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb1hexqyu3m8uuudqdnnpnsnlwe6xg0n3078lx68l&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb1earfwcjre04hp7phqnkw8ts04tkumdn0cyzun0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;voter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tbnb167yp9jkv6uaqnyq62gfkx82xmfny0cl9xe04zj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;proposal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;272&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div></p>
+<h2 id="key-notions">Key Notions</h2>
+<h4 id="vote-options">Vote options</h4>
+<p>There are four vote options:
+- <code>Yes</code>
+- <code>No</code>
+- <code>NoWithVeto</code>
+- <code>Abstain</code></p>
+<p><code>No</code> represents the validator is against this proposal and <code>NoWithVeto</code> suggests the validator is strongly against
+this proposal.<br/>
+<code>Abstain</code> option allows voters to signal that they do not intend to vote in favor or against
+the proposal but accept the result of the vote.</p>
+<h4 id="quorum">Quorum</h4>
+<p>Quorum is defined as the minimum percentage of voting power that needs to be casted on a proposal for the result to
+be valid, which is 0.5(50%) now.</p>
+<p>If voting power does not reach quorum at the end of the voting period, the proposal will be rejected and all deposits
+will be returned to depositors' addresses.</p>
+<p><strong>Note</strong>: There is a special case when all votes are <code>Abstain</code> and voting power is superior to 50%, the proposal will be rejected and all deposits will be refunded.</p>
+<h4 id="veto">Veto</h4>
+<p>Veto is defined as the minimum proportion of <code>NoWithVeto</code> votes for the proposal to be rejected, which is 0.334(1/3) now. If more than 1/3 voters veto, the proposal will be rejected and all deposits will be distributed to validator.</p>
+<h4 id="threshold">Threshold</h4>
+<p>Threshold is defined as the minimum proportion of <code>Yes</code> votes (excluding <code>Abstain</code> votes) for the proposal to be accepted, which is 0.5(50%) now.</p>
+<p>If the proportion of <code>NoWithVeto</code> votes is inferior to 1/3 and the proportion of <code>Yes</code> votes (excluding <code>Abstain</code> votes) is superior to 50%, the proposal will be accepted and all deposits will be returned. Otherwise, the proposal will be rejected and all deposits will be distributed to validator.</p>
+<h4 id="tally-result-example">Tally Result Example</h4>
+<p>You can query a proposal via <code>eth-cli</code>.</p>
+<div class="highlight"><pre><span></span><code>$ ./eth-cli gov query-proposal --chain-id GSYS-Chain-Ganges --node<span class="o">=</span>tcp://data-seed-pre-1-s3.genesys.network:80 --proposal-id <span class="m">370</span>
+<span class="o">{</span>
+  <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;gov/TextProposal&quot;</span>,
+  <span class="s2">&quot;value&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;proposal_id&quot;</span>: <span class="s2">&quot;370&quot;</span>,
+    <span class="s2">&quot;title&quot;</span>: <span class="s2">&quot;list JCC-CB1/GSYS&quot;</span>,
+    <span class="s2">&quot;description&quot;</span>: <span class="s2">&quot;{\&quot;base_asset_symbol\&quot;:\&quot;JCC-CB1\&quot;,\&quot;quote_asset_symbol\&quot;:\&quot;GSYS\&quot;,\&quot;init_price\&quot;:100000000,\&quot;description\&quot;:\&quot;list JCC-CB1/GSYS\&quot;,\&quot;expire_time\&quot;:\&quot;2019-04-24T14:46:35+08:00\&quot;}&quot;</span>,
+    <span class="s2">&quot;proposal_type&quot;</span>: <span class="s2">&quot;ListTradingPair&quot;</span>,
+    <span class="s2">&quot;voting_period&quot;</span>: <span class="s2">&quot;604800000000000&quot;</span>,
+    <span class="s2">&quot;proposal_status&quot;</span>: <span class="s2">&quot;Passed&quot;</span>,
+    <span class="s2">&quot;tally_result&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;yes&quot;</span>: <span class="s2">&quot;1100000000000&quot;</span>,
+      <span class="s2">&quot;abstain&quot;</span>: <span class="s2">&quot;0&quot;</span>,
+      <span class="s2">&quot;no&quot;</span>: <span class="s2">&quot;0&quot;</span>,
+      <span class="s2">&quot;no_with_veto&quot;</span>: <span class="s2">&quot;0&quot;</span>,
+      <span class="s2">&quot;total&quot;</span>: <span class="s2">&quot;1100000000000&quot;</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;submit_time&quot;</span>: <span class="s2">&quot;2019-04-10T06:49:11.568747217Z&quot;</span>,
+    <span class="s2">&quot;total_deposit&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">&quot;denom&quot;</span>: <span class="s2">&quot;GSYS&quot;</span>,
+        <span class="s2">&quot;amount&quot;</span>: <span class="s2">&quot;200000000000&quot;</span>
+      <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;voting_start_time&quot;</span>: <span class="s2">&quot;2019-04-10T06:52:00.064744275Z&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>You can get <code>tally result</code> and <code>proposal_status</code>.<br/></p>
+<p>For options in <code>tally result</code>:</p>
+<ul>
+<li><code>yes</code> denotes voting power votes <code>Yes</code></li>
+<li><code>abstain</code> denotes voting power votes <code>Abstain</code></li>
+<li><code>no</code> denotes voting power votes <code>No</code></li>
+<li><code>no_with_veto</code> denotes voting power votes <code>NoWithVeto</code></li>
+<li><code>total</code> denotes total voting power when voting period ends</li>
+</ul>
+<p>We can calculate proportion of each vote option easily.<br/>
+In this case, total voting power is 1100000000000 and voting power of <code>Yes</code> is 1100000000000,
+so the proportion of <code>Yes</code> is 100% and the proposal should be passed and and your deposit will be returned.</p>
+<p><strong>Note:</strong> Trying to query proposal that didn't enter the voting period will result in <code>error</code>.</p>
+<div class="highlight"><pre><span></span><code>$ ./eth-cli gov query-proposal --chain-id GSYS-Chain-Tigris --node https://dataseed5.defibit.io:443 --proposal-id <span class="m">25</span>
+<span class="o">{</span>
+  <span class="s2">&quot;codespace&quot;</span>: <span class="m">5</span>,
+  <span class="s2">&quot;code&quot;</span>: <span class="m">1</span>,
+  <span class="s2">&quot;abci_code&quot;</span>: <span class="m">327681</span>,
+  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;Unknown proposal with id 25&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

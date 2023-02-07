@@ -1,0 +1,80 @@
+site_name: GSYS Chain Docs
+site_description: GSYS Chain Technology Documentation
+site_author: GSYS Chain Community
+site_url: https://docs.genesys.network
+use_directory_urls: false
+theme:
+  name: material
+  logo: assets/logo.png
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    primary: amber
+    scheme: slate
+    accent: yellow 
+  feature:
+    tabs: true
+extra_css:
+       - stylesheets/dark_theme.css
+       - stylesheets/codehilite.css  
+repo_name: GSYS
+repo_url: https://github.com/
+
+nav:
+  - Home: index.md
+  - GSYS Chain:
+    - Introduction: smart-chain/guides/nc-intro.md
+    - Concepts:
+      - Consensus: smart-chain/guides/concepts/consensus.md
+      - Genesis File: smart-chain/guides/concepts/genesis.md
+    - Ecosystem: https://github.com/ 
+    - GSYS Chain Mainnet Explorer: https://gchainexplorer.genesys.network/
+    - GSYS Chain Testnet Explorer: https://testnet.gchainexplorer.genesys.network/
+    - Wallet: smart-chain/wallet.md
+  - GSYS Chain Developers:
+    - General:
+      - Create Wallet: smart-chain/developer/create-wallet.md
+      - Smart Contract: https://solidity.readthedocs.io/en/v0.7.1/
+      - Remix : https://remix.ethereum.org/
+      - Web3JS: https://web3js.readthedocs.io/en/v1.2.11/
+      - Truffle: https://www.trufflesuite.com/docs/teams/quickstart
+    - Ecosystem: https://github.com/
+    - Deploy:
+      - Remix: smart-chain/developer/deploy/remix.md
+      - Truffle: smart-chain/developer/deploy/truffle.md
+      - HardHat: smart-chain/developer/deploy/hardhat.md
+    - Tools:   
+      - Wallet Provider for DApps: smart-chain/wallet/arkane-developer.md
+    - BLUE20 Tokens:
+      - Introduction: smart-chain/developer/BLUE20.md
+      - Issue Token: smart-chain/developer/issue-BLUE20.md
+    - Blockchain Details:
+      - GSYS Chain Fullnode: smart-chain/developer/fullnode.md      
+      - RPC: smart-chain/developer/rpc.md
+    - Tutorial:
+      - Deploy NFT:  smart-chain/developer/NRC721.md      
+      - Local Genesys Network: smart-chain/developer/deploy/local.md
+  - Wallets:
+    - GSYS Chain Wallet Support: smart-chain/wallet.md
+  - GSYS Chain Explorer: https://bgchainexplorer.genesys.network
+  - GSYS Chain Faucet: https://faucet.genesys.network
+  - The GSYS Chain Telegram Group : https://t.me/
+  - Twitter: https://twitter.com/  
+  - FAQ:
+    - GSYS Chain FAQ:
+      - General:
+        - Info: faq/nc/general.md
+        - GSYS Chain: faq/nc/nc.md
+        - Ecosystem: faq/nc/eco.md
+      - Token:
+        - Intro: faq/nc/token.md
+        - TC20: faq/nc/blue20.md
+    - Contributing: CONTRIBUTING.md
+
+
+markdown_extensions:
+    - admonition
+    - pymdownx.arithmatex
+    - pymdownx.superfences
+    - codehilite

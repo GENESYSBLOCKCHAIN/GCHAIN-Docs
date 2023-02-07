@@ -1,0 +1,2062 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/tss.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>User Guide of Threshold Signature Scheme (TSS) in Genesys Chain - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#user-guide-of-threshold-signature-scheme-tss-in-genesys-chain" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Guide of Threshold Signature Scheme (TSS) in Genesys Chain
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet/arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    Workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-can-i-download-the-gsys-tss-cli" class="md-nav__link">
+    Where can I download the GSYS TSS CLI?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    How to Use
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#describe" class="md-nav__link">
+    Describe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel" class="md-nav__link">
+    Channel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keygen" class="md-nav__link">
+    Keygen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regroup" class="md-nav__link">
+    Regroup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-eth-clieth-cli" class="md-nav__link">
+    Changes to eth-cli/eth-cli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-init-tss" class="md-nav__link">
+    Step 1: Init TSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-generate-channel-id-for-bootstraping" class="md-nav__link">
+    Step 2: Generate Channel ID for bootstraping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-generate-and-share-secret" class="md-nav__link">
+    Step 3: Generate and Share Secret
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-sign-transaction" class="md-nav__link">
+    Step 4: Sign Transaction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-regroup-vault" class="md-nav__link">
+    Step 5: Regroup Vault
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/tss.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="user-guide-of-threshold-signature-scheme-tss-in-genesys-chain">User Guide of Threshold Signature Scheme (TSS) in Genesys Chain</h1>
+<h2 id="introduction">Introduction</h2>
+<p><strong>Threshold Signature Scheme (TSS)</strong> is a cryptographic protocol for distributed key generation and signing. TSS allows constructing a signature that is distributed among different parties (for example three users), and each user receives a share of the private signing key. To sign a transaction, at least two of these three users need to join. For individuals, threshold signatures allow for two-factor security or splitting the ability to sign between two devices so that a single compromised device won’t put the money at risk. For businesses, threshold signatures allow for the realization of access control policies that prevent both insiders and outsiders from stealing corporate funds. TSS technology allows us to replace all signing commands with distributed computations.The private key is no longer a single point of failure.</p>
+<h2 id="motivation">Motivation</h2>
+<p>A physical key must fit exactly into a keyhole to unlock a physical vault. But if this key is compromised or lost, the funds locked in the vault may no longer be safe. This simple approach of key management may make sense when a small sum is at stake. However, when the amount stored in the vault is large, it is wise to consider spreading the responsibility of key ownership between several trusted parties.</p>
+<p>Traditional <strong>MultiSig (multi-signature)</strong> is a more refined unlocking system that requires <em>multiple</em> independent keys to unlock the vault. MultiSig requires generating a larger private key and the vault has multiple locks - one for each key . More processing power is needed as participants have to sign additional signatures, which must then be checked individually by the network. This is not ideal, because a participant must leave traces showing exactly who signed and multiple parties must be online at the same time.</p>
+<p>With <strong>Threshold Signatures</strong>, all of the parties must forge the vault’s lock together, in a modular way, where each party owns a share of the key. A TSS vault is indistinguishable from a regular vault and is hence universal, and it has the same privacy and verification cost of a regular vault. Even if only a subset of the keys is available, the vault may still be unlocked (this is known as meeting a threshold of participation).</p>
+<p>Combining TSS feature  with Genesys Chain client will help users manage their funds in a much safer way. TSS will be offered in an independent binary, but it will have some impact on the existing functions of <em>eth-cli/eth-cli</em>.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Many development resources have been poured into implementing TSS, a cryptographic protocol for distributed key generation and signing. TSS is now compatible and reusable for ECDSA-based blockchains, including Genesys Chain, Bitcoin, and Ethereum networks. We expect that members of the GSYS ecosystem and partner community can integrate this TSS library with their applications, such as wallets and custodians, and further develop this exciting new technology.</p>
+<p>With the support of the Genesys Chain community, we are happy to share the open-source code athttps://github.com/githubusername/githubrepo/tss-lib.</p>
+<h2 id="workflow">Workflow</h2>
+<p>Let’s take a look at the major steps in TSS:</p>
+<ul>
+<li>
+<p><strong>Vault Initialization</strong>: the first step is for setting up tss parameters of each party. This will initialize the node's p2p listen address and setup a directory to save key. It's recommended that you should save your tss key in a different folder other than normal key info.</p>
+</li>
+<li>
+<p><strong>Key Generation</strong>: the second step is also the most complex. We need to define the quorum policy: count of total parties (n) that holds secret shares and threshold (t) which means at least t + 1 parties need to take part in the signing process. We need to generate a key which will be public and used to verify future signatures. However, we also have to generate an individual secret for each party, which is called a secret share. The functions guarantee the same public key to all parties and a different secret share for each. In this way, we achieve: (1) privacy: no secret shares data is leaked between any parties, and (2) correctness: the public key is intact with secret share. They need to agree on the channel which they want to use for sending messages between each other. The channel will have its corresponding password. Both ID and password needs to be shared offline.</p>
+</li>
+<li>
+<p><strong>Signing</strong>: this step involves a signature generation function. The input of each party will be its own secret share, created as output of the distributed key generation in the previous step. There is also public input known to all, which is the message to be signed. The output will be a digital signature, and the property of privacy ensures that no leakage of secret shares occurred during the computation.</p>
+</li>
+<li>
+<p><strong>Verification</strong>: the verification algorithm remains as it is in the classical setting. To be compatible with single key signatures, Genesys Chain validator nodes can be able to verify the signature with the public key. The transaction will be no different from others.</p>
+</li>
+<li>
+<p><strong>Vault Regroup</strong>:  Regroup will reset secret share and configs between all parties.It's recommend to switch the configuration periodically, say once a month. If some party lost his key, it's also necessory to reset the distribution once some party lost their key. Regroup will generate new_n secret share with new_t threshold. At least old_t + 1 should participant</p>
+</li>
+</ul>
+<h2 id="where-can-i-download-the-gsys-tss-cli">Where can I download the GSYS TSS CLI?</h2>
+<p>You can download tss client and Genesys Chain Commandline here:</p>
+<ul>
+<li>
+<p>Mainnet: <a href="https://github.com/githubusername/githubrepo/node-binary/tree/master/cli/prod/0.6.2-TSS-0.1.2">https://github.com/githubusername/githubrepo/node-binary/tree/master/cli/prod/0.6.2-TSS-0.1.2</a></p>
+</li>
+<li>
+<p>Testnet: <a href="https://github.com/githubusername/githubrepo/node-binary/tree/master/cli/testnet/0.6.2-TSS-0.1.2">https://github.com/githubusername/githubrepo/node-binary/tree/master/cli/testnet/0.6.2-TSS-0.1.2</a></p>
+</li>
+</ul>
+<h2 id="how-to-use">How to Use</h2>
+<ul>
+<li><strong>Warning</strong>: Please test your TSS setup before use this on mainnet.</li>
+</ul>
+<blockquote>
+<p>Please backup your eth-cli home before use this tool:</p>
+</blockquote>
+<p><div class="highlight"><pre><span></span><code>cp -r ~/.eth-cli ~/.eth-cli_backup_tss (replace ~/.eth-cli with their eth-cli home)
+</code></pre></div>
+Please refer to this <a href="#example">Example</a> to help you understand the whole process</p>
+<h3 id="init">Init</h3>
+<p><code>tss init</code> will create home directory of a new tss setup, generate p2p key pair.</p>
+<ul>
+<li>Here are the global transaction flags:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vault_name</td>
+<td>string</td>
+<td>name of the vault of this party</td>
+<td></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>the password of the vault</td>
+<td>must be 32 bytes or more, the default value is 48</td>
+</tr>
+<tr>
+<td>home</td>
+<td>string</td>
+<td>Path to config/route_table/node_key/tss_key files, configs in config file can be overridden by command line argument</td>
+<td>the default value is "~/.tss"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Here are the flags for <code>tss init</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kdf.iterations</td>
+<td>uint32</td>
+<td>The number of iterations (or passes) over the memory.</td>
+<td>the default value is 13</td>
+</tr>
+<tr>
+<td>kdf.key_length</td>
+<td>uint32</td>
+<td>Length of the generated key (or password hash) "must be 32 bytes or more,</td>
+<td>the default value is 48"</td>
+</tr>
+<tr>
+<td>kdf.memory</td>
+<td>uint32</td>
+<td>The amount of memory used by the algorithm (in kibibytes)</td>
+<td>the default value is 65536</td>
+</tr>
+<tr>
+<td>kdf.parallelism</td>
+<td>uint8</td>
+<td>The number of threads (or lanes) used by the algorithm.</td>
+<td>the default value is 4</td>
+</tr>
+<tr>
+<td>kdf.salt_length</td>
+<td>uint32</td>
+<td>Length of the random salt. 16 bytes is recommended for password hashing.</td>
+<td>the default value is 16</td>
+</tr>
+<tr>
+<td>moniker</td>
+<td>string</td>
+<td>moniker of current party</td>
+<td></td>
+</tr>
+<tr>
+<td>p2p.listen</td>
+<td>string</td>
+<td>Adds a multiaddress to the listen list</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="describe">Describe</h3>
+<p><code>tss describe</code> will show config and address of a tss vault</p>
+<ul>
+<li>Here are the flags for <code>tss describe</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>address_prefix</td>
+<td>string</td>
+<td>bech32 prefix of address (default "bnb")</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Example
+<div class="highlight"><pre><span></span><code>./tss describe
+
+&gt; please set vault of this party:
+[input vault name]
+&gt; Password to sign with this vault:
+[input password]
+address of this vault: bnb1
+config of this vault:
+{
+        &quot;p2p&quot;: {
+                &quot;listen&quot;: &quot;/ip4/0.0.0.0/tcp/59968&quot;,
+                &quot;bootstraps&quot;: null,
+                &quot;relays&quot;: null,
+                &quot;peer_addrs&quot;: [
+                        &quot;/ip4/127.0.0.1/tcp/59748&quot;,
+                        &quot;/ip4/127.0.0.1/tcp/60022&quot;
+                ],
+                &quot;peers&quot;: [
+                        &quot;test3&quot;,
+                        &quot;test2&quot;
+                ],
+                &quot;DefaultBootstap&quot;: false
+        },
+        &quot;Id&quot;: &quot;&quot;,
+        &quot;Moniker&quot;: &quot;tss1&quot;,
+        &quot;vault_name&quot;: &quot;vault1&quot;,
+        &quot;Threshold&quot;: 1,
+        &quot;Parties&quot;: 3,
+        &quot;log_level&quot;: &quot;info&quot;,
+        &quot;profile_addr&quot;: &quot;&quot;,
+        &quot;Home&quot;: &quot;~/.tss&quot;
+}
+</code></pre></div></li>
+</ul>
+<h3 id="channel">Channel</h3>
+<p><code>tss channel</code> will generate a channel ID for bootstrapping. One party can generate a channel, then share the generated channel ID with others offline.</p>
+<ul>
+<li>Here are the flags for <code>tss channel</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>channel_expire</td>
+<td>int</td>
+<td>expire time in minutes of this channel</td>
+<td>Default value is 30mins</td>
+</tr>
+</tbody>
+</table>
+<p>It's advised to refresh the channels regularly.</p>
+<h3 id="keygen">Keygen</h3>
+<p>This command will generate the private key and share the secret. Everyone needs to agree on the password of this private key. The password length must be larger than <strong>eight</strong>.</p>
+<p>Note: you need to make sure that all the parties are online.</p>
+<ul>
+<li>Here are the flags for <code>tss keygen</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>address_prefix</td>
+<td>string</td>
+<td>prefix of bech32 address</td>
+<td>the default value is <code>bnb</code></td>
+</tr>
+<tr>
+<td>channel_id</td>
+<td>string</td>
+<td>channel id for this session</td>
+<td></td>
+</tr>
+<tr>
+<td>channel_password</td>
+<td>string</td>
+<td>password to this channel</td>
+<td>This password has to be set offline. And its length should be more than <strong>eight</strong>.</td>
+</tr>
+<tr>
+<td>p2p.peer_addrs</td>
+<td>[]sting</td>
+<td>peer's multiplex addresses</td>
+<td></td>
+</tr>
+<tr>
+<td>parties</td>
+<td>int</td>
+<td>total parities of this scheme</td>
+<td></td>
+</tr>
+<tr>
+<td>threshold</td>
+<td>int</td>
+<td>threshold of this scheme, at least threshold + 1 parties need participant signing</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>if you want to add the generated key files in the eth-cli home, you can copy it to the home folder:
+<div class="highlight"><pre><span></span><code>eth-cli keys add --tss -t tss --tss-home ~/.test1 --tss-vault third test1_third
+</code></pre></div></p>
+<h3 id="regroup">Regroup</h3>
+<p>This command will generate new_n secret from the same private key, and it will be shared with new_t threshold. At least old_t + 1 should participante in signing</p>
+<ul>
+<li>Here are the flags for <code>tss regroup</code>:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>channel_password</td>
+<td>string</td>
+<td>channel password of this session</td>
+<td></td>
+</tr>
+<tr>
+<td>channel_id</td>
+<td>string</td>
+<td>channel id of this session</td>
+<td></td>
+</tr>
+<tr>
+<td>is_old</td>
+<td>string</td>
+<td>whether this party is old committee. If it is set to true, it will participant signing in regroup. There should be only t+1 parties set this to true for one regroup</td>
+<td></td>
+</tr>
+<tr>
+<td>is_new_member</td>
+<td>string</td>
+<td>whether this party is new committee, for new party it will changed to true automatically. if an old party set this to true, its share will be replaced by one generated one</td>
+<td></td>
+</tr>
+<tr>
+<td>new_parties</td>
+<td>int</td>
+<td>new total parties of regrouped scheme</td>
+<td></td>
+</tr>
+<tr>
+<td>new_threshold</td>
+<td>int</td>
+<td>new threshold of regrouped scheme</td>
+<td></td>
+</tr>
+<tr>
+<td>p2p.new_peer_addrs</td>
+<td>[]sting</td>
+<td>unknown peer's multiple addresses</td>
+<td></td>
+</tr>
+<tr>
+<td>parties</td>
+<td>int</td>
+<td>total parities of this scheme</td>
+<td></td>
+</tr>
+<tr>
+<td>threshold</td>
+<td>int</td>
+<td>threshold of this scheme, at least threshold + 1 parties  need participant signing</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="changes-to-eth-clieth-cli">Changes to <code>eth-cli/eth-cli</code></h2>
+<p>We added a new key type “tss” (just like the existing types: “local”, “offline”, “ledger”) to eth-cli which stands for tss secret share.</p>
+<p>To add a tss key into eth-cli’s keystore:
+1. Tss keygen command will automatically add generated secret share into default keystore (~/.eth-cli) with name “tss_<moniker>_<vault_name>”
+2. User can manually specify tss’s home, vault_name and a customized eth-cli home like:
+<div class="highlight"><pre><span></span><code>eth-cli keys add --home ~/.customized_cli --tss -t tss --tss-home ~/.test1 --tss-vault “default” my_name
+</code></pre></div>
+All other commands (i.e. send token, place order, delete key etc.) of eth-cli should support tss type key.</p>
+<h2 id="example">Example</h2>
+<p>In this example, A, B and C are the parties who decided to share a private key together. They decided that any two of them can sign a transaction. To complete a TSS signing process, they need to follow the following steps:</p>
+<h3 id="step-1-init-tss">Step 1: Init TSS</h3>
+<p>During this step, all parties from different machines have to initialite their P2P settings before generate the shared key.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss init</td>
+<td>./tss init</td>
+<td>./tss init</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; please set moniker of this party: <br> tss1<br/>&gt; please set vault of this party:<br/>vault1<br/>&gt; please set password of thisvault:<br/>[input password]<br/>&gt; please input again:<br/>[input password]</td>
+<td>&gt; please set moniker of this party: <br/>tss2<br/>&gt; please set vault of this party:<br/>vault1<br/>&gt; please set password of this vault:<br/>[input password]<br/>&gt;please input again:<br/>[input password]</td>
+<td>&gt; please set moniker of this party:<br/>tss3<br/>&gt; please set vault of this party:vault1<br/>&gt; please set password of this vault:<br/>[input password]<br/>&gt; please input again:<br/>[input password]</td>
+</tr>
+<tr>
+<td>output</td>
+<td>Local party has been initialized under: <br/>~/.tss/vault1</td>
+<td>Local party has been initialized under: <br/>~/.tss/vault1</td>
+<td>Local party has been initialized under: <br/>~/.tss/vault1</td>
+</tr>
+<tr>
+<td>Files touched or generated</td>
+<td>~/.tss/vault1/config.json      <br/>  ~/.tss/vault1/node_key</td>
+<td>~/.tss/vault1/config.json <br/>  ~/.tss/vault1/node_key</td>
+<td>~/.tss/vault1/config.json <br/>   ~/.tss/vault1/node_key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-2-generate-channel-id-for-bootstraping">Step 2: Generate Channel ID for bootstraping</h3>
+<p>In this step, the parties will create a secrect communication channel between them. One of then will generate the channel ID and share with others. In this example, A will generate the channel ID. B and C will not have to do anything. A can also specify the length for this channel session and the default time is 30 mins.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss channel</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; please set expire time in minutes, (default: 30):<br/>[input time]</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>output</td>
+<td>channel id: <strong>5185D3EF597</strong></td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-3-generate-and-share-secret">Step 3: Generate and Share Secret</h3>
+<p>In this step, the private key will be generated and shared between these three parties. All the parties have to be online at the sme time.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss keygen --vault_name vault1</td>
+<td>./tss keygen --vault_name vault1</td>
+<td>./tss keygen --vault_name vault1</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; Password to sign with this vault:<br/>[enter password]<br/>&gt; please set total parties(n): <br/>3<br/>&gt; please set threshold(t), at least t + 1 parties  need participant signing: <br/>1<br/>&gt; please set channel id of this session<br/>[enter ID]<br/>&gt; please input password (AGREED offline with peers) of this session:<br/>[enter password]<br/>&gt; please input password of this tss vault: <br/>[enter password]</td>
+<td>&gt;please input&gt; Password to sign with this vault:<br/>[enter password]<br/>&gt; please set total parties(n): <br/>3<br/>&gt; please set threshold(t), at least t + 1 parties need participant signing: <br/>1<br/>&gt; please set channel id of this session<br/>[enter ID]<br/>&gt;please input password (AGREED offline with peers) of this session: <br/>[enter password]<br/>&gt;please input password of this tss vault:<br/> [enter password]</td>
+<td>&gt; Password to sign with this vault:<br/>[enter password]<br/>&gt; please set total parties(n):<br/> 3<br/>&gt; please set threshold(t), at least t + 1 parties need participant signing: <br/>1<br/>&gt; please set channel id of this session<br/>3085D3EC76D<br/>&gt; please input password (AGREED offline with peers) of this session: [enter password]<br/>Password of this tss vault:<br/> [enter password]</td>
+</tr>
+<tr>
+<td>output</td>
+<td>18:00:09.777  INFO    tss-lib: party {0,tss1}: keygen finished! party.go:11318:00:09.777  INFO        tss: [tss1] received save data client.go:30418:00:09.777  INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp client.go:309Password of this tss vault:NAME:   TYPE:   ADDRESS:                                                PUBKEY:tss_tss1_vault1        tss     tbnb19277gzv934ayctxeg5k9zdwnx3j48u6tydjv9p     bnbp1addwnpepqwazk6d3f6e3f5rjev6z0ufqxk8znq8z89ax2tgnwmzreaq8nu7sx2u4jcc</td>
+<td>18:00:09.777  INFO</td>
+<td></td>
+</tr>
+<tr>
+<td>: party {1,tss2}: keygen finished! party.go:11318:00:09.777  INFO        tss: [tss2] received save data client.go:30418:00:09.777  INFO        tss: [tss2] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp client.go:309Password of this tss vault:NAME:   TYPE:   ADDRESS:                                                PUBKEY:tss_tss2_vault1       tss     tbnb19277gzv934ayctxeg5k9zdwnx3j48u6tydjv9p     bnbp1addwnpepqwazk6d3f6e3f5rjev6z0ufqxk8znq8z89ax2tgnwmzreaq8nu7sx2u4jcc</td>
+<td>18:00:09.773  INFO    tss-lib: party {2,tss3}: keygen finished! party.go:11318:00:09.773  INFO        tss: [tss3] received save data client.go:30418:00:09.773  INFO        tss: [tss3] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp client.go:309Password of this tss vault:NAME:   TYPE:   ADDRESS:                                                PUBKEY:tss_tss3_vault1        tss     tbnb19277gzv934ayctxeg5k9zdwnx3j48u6tydjv9p     bnbp1addwnpepqwazk6d3f6e3f5rjev6z0ufqxk8znq8z89ax2tgnwmzreaq8nu7sx2u4jcc</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Files touched or generated</td>
+<td>~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/config.json</td>
+<td>~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/config.json</td>
+<td>~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/config.json</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-4-sign-transaction">Step 4: Sign Transaction</h3>
+<p>In this steo, A and B decided to sign a transaction together. Both A and B will try to broadcast the transaction and only one of them will succeed.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>eth-cli send --amount 1000000:GSYS --to tbnb1mh3w2kxmdmnvctt7t5nu7hhz9jnp422edqdw2d --from tss_tss1_vault1 --chain-id GSYS-Chain-Ganges --node https://data-seed-pre-0-s1.genesys.network:443 --trust-node</td>
+<td>eth-cli send --amount 1000000:GSYS --to tbnb1mh3w2kxmdmnvctt7t5nu7hhz9jnp422edqdw2d --from tss_tss2_vault1 --chain-id GSYS-Chain-Ganges --node https://data-seed-pre-0-s1.genesys.network:443 --trust-node</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Channel id:<br/>5185D3EF597<br/>please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td>
+<td>Password to sign with tss_tss2_vault1:<br/>[Enter password]<br/>&gt; Channel id:<br/>5185D3EF597<br/>please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>output</td>
+<td>Committed at block 33600477 (tx hash: 4FB8096A93D545612A3B5DCE520622608C299C7742103A6BE34C444829BD83A5</td>
+<td>ERROR: broadcast_tx_commit: Response error: RPC error -32603 - Internal error: Error on broadcastTxCommit: Tx already exists in cache</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Files touched or generated</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-5-regroup-vault">Step 5: Regroup Vault</h3>
+<p>First, please generate a new channel for messaging:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss channel</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; please set expire time in minutes, (default: 30):<br/>[input time]</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>output</td>
+<td>channel id: <strong>3415D3FBE00</strong></td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Then, we can switch to the new channel for sending messages to each others.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss regroup</td>
+<td>./tss regroup</td>
+<td>./tss regroup</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; please set vault of this party:<br/>vault1<br/>&gt; Password to sign with this vault:<br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Participant as an old committee? [Y/n]:<br/>Y<br/>&gt; Participant as a new committee? [Y/n]:<br/>Y<br/>&gt; please set new total parties(n): <br/>3<br/>&gt; please set new threshold(t), at least t + 1 parties   participant signing: <br/>1<br/>&gt; Channel id:<br/>3415D3FBE00<br/>please input password (AGREED offline with peers) of this session: <br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]</td>
+<td>&gt; please set vault of this party:<br/>vault1<br/>&gt; Password to sign with this vault:<br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Participant as an old committee? [Y/n]:<br/>Y<br/>&gt; Participant as a new committee? [Y/n]:<br/>Y<br/>&gt; please set new total parties(n): <br/>3<br/>&gt; please set new threshold(t), at least t + 1 parties   participant signing: <br/>1<br/>&gt; Channel id:<br/>3415D3FBE00<br/>please input password (AGREED offline with peers) of this session: <br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]</td>
+<td>&gt; please set vault of this party:<br/>vault1<br/>&gt; Password to sign with this vault:<br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]<br/>&gt; Participant as an old committee? [Y/n]:<br/>Y<br/>&gt; Participant as a new committee? [Y/n]:<br/>Y<br/>&gt; please set new total parties(n): <br/>3<br/>&gt; please set new threshold(t), at least t + 1 parties   participant signing: <br/>1<br/>&gt; Channel id:<br/>3415D3FBE00<br/>please input password (AGREED offline with peers) of this session: <br/>Password to sign with tss_tss1_vault1:<br/>[Enter password]</td>
+</tr>
+<tr>
+<td>output</td>
+<td>INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp</td>
+<td>INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp</td>
+<td>INFO        tss: [tss1] bech32 address is: tbnb1mcn0tl9rtf03ke7g2a6nedqtrd470e8l8035jp</td>
+</tr>
+<tr>
+<td>Files touched or generated</td>
+<td>~/.tss/vault1/config.json<br/> ~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/node_key</td>
+<td>~/.tss/vault1/config.json<br/> ~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/node_key</td>
+<td>~/.tss/vault1/config.json<br/> ~/.tss/vault1/pk.json<br/> ~/.tss/vault1/sk.json<br/> ~/.tss/vault1/node_key</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>New committee having different t-n from old committee</li>
+<li>Change 1-3 into 2-4 scheme.</li>
+<li>old parties (A, B) join new committee</li>
+<li>new parties (D, E) are newly-joined</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>D</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss init  --vault_name vault1</td>
+<td>./tss init  --vault_name vault1</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; please set moniker of this party:<br/> tss4<br/>&gt; please set password for key share:<br/>[Enter password]<br/>&gt; please intput again: <br/>[Enter password]</td>
+<td>&gt; please set moniker of this party:<br/> tss4<br/>&gt; please set password for key share:<br/>[Enter password]<br/>&gt; please intput again:<br/>[Enter password]</td>
+</tr>
+<tr>
+<td>output</td>
+<td>Local party has been initialized under: ~/.tss/vault1</td>
+<td>Local party has been initialized under: ~/.tss/vault1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Regroup from 1-3 to 2-4, with 2 old parties (A and B) and 2 new parties (D and E)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A (old&amp;new committee)</th>
+<th>B (old&amp;new committee)</th>
+<th>D (new committee)</th>
+<th>E (new committee)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>./tss regroup/ --vault_name vault1</td>
+<td>./tss regroup  --vault_name vault1</td>
+<td>./tss regroup  --vault_name vault1</td>
+<td>./tss regroup  --vault_name vault1</td>
+</tr>
+<tr>
+<td>Interactive input</td>
+<td>&gt; please input password:<br/> [Enter password] <br/>&gt; Participant as an old committee? [Y/n]: <br/>Y<br/> &gt; Participant as a new committee? [Y/n]: <br/>Y <br/>&gt; please set NEW total parties(n):<br/> 4<br/> &gt; please set NEW threshold(t), at least t + 1 parties   participant signing: <br/>2 <br/>&gt; Channel id:<br/> 3415D3FBE00<br/> &gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td>
+<td>&gt; please input password: <br/>[Enter password]<br/> &gt; Participant as an old committee? [Y/n]:<br/> Y <br/>&gt; Participant as a new committee? [Y/n]:<br/> Y <br/>&gt; please set NEW total parties(n):<br/> 4<br/> &gt; please set NEW threshold(t), at least t + 1 parties need participant signing:<br/> 2 <br/>&gt; Channel id: 3415D3FBE00 <br/>&gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td>
+<td>&gt; please input password: <br/>[Enter password] <br/>&gt; please set Old total parties(n): <br/>3 <br/>&gt; please set Old threshold(t), at least t + 1 parties need participant signing: <br/>1 <br/>&gt; please set NEW total parties(n): <br/>4 <br/>&gt; please set NEW threshold(t), at least t + 1 parties need participant signing: <br/>2<br/> &gt; Channel id: <br/>3415D3FBE00 <br/>&gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td>
+<td>&gt; please input password:<br/>[Enter password] <br/>&gt; please set Old total parties(n): <br/>3 <br/>&gt; please set Old threshold(t), at least t + 1 parties need participant signing: <br/>1 <br/>&gt; please set NEW total parties(n): <br/>4<br/> &gt; please set NEW threshold(t), at least t + 1 parties need participant signing: <br/>2<br/> &gt; Channel id: <br/>3415D3FBE00<br/> &gt; please input password (AGREED offline with peers) of this session: <br/>[Enter password]</td>
+</tr>
+<tr>
+<td>output</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Files touched or generated</td>
+<td>~/.tss/vault1/config.json<br/>  ~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json</td>
+<td>~/.tss/vault1/config.json<br/>  ~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json</td>
+<td>~/.tss/vault1/config.json<br/>  ~/.tss/vault1/pk.json <br/> ~/.tss/vault1/sk.json</td>
+<td>~/.tss/payment/config.json<br/>  ~/.tss/payment/pk.json <br/> ~/.tss/vault1/sk.json</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

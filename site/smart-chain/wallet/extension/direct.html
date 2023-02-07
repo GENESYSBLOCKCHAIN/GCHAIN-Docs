@@ -1,0 +1,1432 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/smart-chain/wallet/extension/direct.html">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>[Wallet Direct](https://www.genesys.network/en/wallet-direct) User Guide - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wallet-direct-user-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              [Wallet Direct](https://www.genesys.network/en/wallet-direct) User Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    Key Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-guide" class="md-nav__link">
+    User Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="User Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-pair-your-wallets" class="md-nav__link">
+    How to pair your wallets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-undo-your-paired-wallets" class="md-nav__link">
+    How to undo your paired wallets?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-withdraw-tokens-from-gsyscom-to-a-paired-account-in-extension-wallet" class="md-nav__link">
+    How to Withdraw Tokens from GSYS.com to a paired account in Extension wallet?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-deposit-tokens-from-your-gsys-extension-wallet-account-to-a-paired-gsyscom-account" class="md-nav__link">
+    How to Deposit Tokens from your GSYS Extension wallet account to a paired GSYS.com account?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-view-your-withdrawal-history-between-paired-accounts" class="md-nav__link">
+    How to view your withdrawal history between paired accounts?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/smart-chain/wallet/extension/direct.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="wallet-direct-user-guide"><a href="https://www.genesys.network/en/wallet-direct">Wallet Direct</a> User Guide</h1>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li>Seamless Token Transfer
+Transfer tokens (which support BC/TC) between paired GSYS.com account and Genesys Chain Wallet. Without the trouble of copy/paste address and memo every time</li>
+<li>GSYS Holding
+The GSYS  positions of your GSYS.com account will not change.</li>
+</ul>
+<h2 id="user-guide">User Guide</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>GSYS.com Account SetupEnable two-factor authentication for your GSYS.com account (The balance cannot be zero)</li>
+<li>Install Genesys Chain Extension WalletInstall the latest <strong>v1.126.11</strong> :<ul>
+<li>Chrome App Store Link: https://chrome.google.com/webstore/detail/shree-chain-wallet/fhbohimaelbohpjbbldcngcnapndodjp</li>
+<li>Firefox App Store Link: https://addons.mozilla.org/en-US/firefox/addon/shree-chain/?src=search</li>
+</ul>
+</li>
+<li>Create an account. You cannot use the accounts imported from your Ledger hardware wallet.</li>
+</ul>
+<h3 id="how-to-pair-your-wallets">How to pair your wallets</h3>
+<ol>
+<li>Choose one of your accounts </li>
+</ol>
+<p>You cannot use the accounts imported from your Ledger hardware wallet.</p>
+<p>Click on “Connect to GSYS.com account”</p>
+<p><img src="https://lh3.googleusercontent.com/xWq_Rs201yfKQ1rUES8BRyQWevCok8l38xaLXUafqsIbcD_uFFlXG2s-6ypX1bIa-4N1_oZRrEUcKQP2RfzlUVTGz4ILuXcpbgXcjCYKYNVDu3UqApAgEOqd_O_oa1jrZqm1yFj6" alt="img" style="zoom:33%;" /></p>
+<ol>
+<li>Verify Address Ownership
+2.1 Connect your browser extension wallet</li>
+</ol>
+<p><img src="https://lh4.googleusercontent.com/YsG4A4Bwv5TJ4GlGp1RnKYuKKtqmwWVwGLMY-PsnfULj7enrqaEfqecUooHPI_-3-N_yVMfcrq-M9Vua71KWEZ9Y18Nbkr_RN8h98JaaZ0AZDjUbAGMv8XevdWFjrVf6u70rCdW4" alt="img" style="zoom:33%;" /></p>
+<p>2.2 Sign messageSign via browser extension wallet</p>
+<p><img alt="img" src="https://lh5.googleusercontent.com/jg9aisylcV0X63iwRvvX1vqpzZcSQjK5Dn-AwBvnMRtsvfQsY2NjUdQnUZ8WEBIsijuKIgPsPq4TyWk5rEQBTqdwWJRrG7476aUXYKUOq7F3UfDZ8Iqg9v9lXBRGiv39cCLzyGoi" /></p>
+<p>2.3: Connected and wallet direct successfully</p>
+<p><img src="https://lh6.googleusercontent.com/Pei1_aEhE5tnT27s0wULsdH-CV2cgKBoR7KZyoquoEbWNfxE_AykTcIihDgwHIa5mUVhsEuMgQdjM02oUqoxH96Y5g_gEJp7pbfnQ0gj3Fom2Ad6s6pMyCj4FTnnjsxePPSfJRVa" alt="img" style="zoom:33%;" /></p>
+<p>The connected address display on this page: https://www.genesys.network/en/wallet-direct </p>
+<p><img src="https://lh4.googleusercontent.com/78UWTlOflzaiSipnOEoc0wKzl1x_4-si4QG-v4XWl3rf1-tFcV5Ug35PcwVS3Rgorabnee5KtZuOwTZKn0k-UBduTqQJEDJK2A-BSMxmNyDobvqvNOktLj5xB9tpg3d-1zd5UrBd" alt="img" style="zoom:33%;" /></p>
+<p>You can confirm the paired status from the Extension wallet</p>
+<p><img alt="img" src="https://lh3.googleusercontent.com/FNKXPv4IdCglDjUp8V_Ai-hbz5giUC5ryg05L1dHCBy-X4tQJzVxPXS_fDo2woH9wuPcoiNuenAeG_oX0AfguELXHD-OGZUKR25_x_M_KZaBpE1-UXt5n3Xtwf-UvPqIKxSawFdc" /></p>
+<h3 id="how-to-undo-your-paired-wallets">How to undo your paired wallets?</h3>
+<ul>
+<li>Unpair from <a href="https://www.genesys.network/en/wallet-direct">GSYS.com</a></li>
+</ul>
+<p><img src="https://lh4.googleusercontent.com/78UWTlOflzaiSipnOEoc0wKzl1x_4-si4QG-v4XWl3rf1-tFcV5Ug35PcwVS3Rgorabnee5KtZuOwTZKn0k-UBduTqQJEDJK2A-BSMxmNyDobvqvNOktLj5xB9tpg3d-1zd5UrBd" alt="img" style="zoom:33%;" /></p>
+<p>Go to this page: https://www.genesys.network/en/wallet-direct and click on “Disconnect‘, then your address is not connected anymore.</p>
+<p><img src="https://lh5.googleusercontent.com/bZGc8FAkgO_Q3k1S_XLpPLEJFP4ypIj4dGKj3WtkBNrAUatx7igSzkTIn-XJtOzD34DF3YHzQ1L2Pj54nVpSDu53DU7DuJvruPPaQV2LO-fNs19vSrJB-lTN9ooo4SC9TWnKCv8N" alt="img" style="zoom:25%;" /></p>
+<ul>
+<li>Unpair from your GSYS Extension wallet </li>
+</ul>
+<p>Click on the “Manage” button to view the details of your account</p>
+<p><img alt="img" src="https://lh5.googleusercontent.com/sU3RmN-wo6gCR3R9Jn9fyMLay06DhbNiv_UHbkoBcSqaOTsJh4mZl00Hm8ARnNOXJnv7He2Is9rgSuuHhbpjPS-QAk5G-S7n_S-n5AcBrUqIsPI3vz3sd1hqf932zWhO5j5CUtdo" /></p>
+<p>Click on “Disconnect” then confirm</p>
+<p><img src="https://lh4.googleusercontent.com/olFs-muEq8tpF7NYnJU-VnGYCQZJKTHMkZBaEDJVq_UmgjH7y22AtbwWhGbHu9biRHtKQrxOvteDcM29Q5QzQB2WMVXXZdYK2cDF7Zvc6bKl8ntKcKeq5pzJ9p10uz9iZ25QOywY" alt="img" style="zoom:33%;" /></p>
+<p>You can confirm the paired status from the Extension wallet</p>
+<p><img alt="img" src="https://lh6.googleusercontent.com/_oTorh_azMIZ4UA0GM3ABna2gd68H8qVwF_d059z8Sb8eIKEqIZYtOyFxREwFg7acS6dFdFsty8mtOo3Ct6B4Ixe5AY9pD1Q_KnPMvTTUx63di3EhSFD-2CrSzHz53lxyCg771b1" /></p>
+<h3 id="how-to-withdraw-tokens-from-gsyscom-to-a-paired-account-in-extension-wallet">How to Withdraw Tokens from GSYS.com to a paired account in Extension wallet?</h3>
+<ol>
+<li>Unlock your pairs account of GSYS Extension wallet</li>
+</ol>
+<p>Click on the “Receive” button</p>
+<p><img src="https://lh6.googleusercontent.com/NppXCGw5R4sWIEdMc9cItLhFLWY2cO5nz3U45bb2l1_WWtBkAm_6u09kok0MroESlFh5qDjBX54vyAJaYIzj2pBEfYNr7Gk8MdjoU8JM4BWk8vv-fE1y468qy-YjeVV3inUMFcmW" alt="img" style="zoom:50%;" /></p>
+<ol>
+<li>Choose “Wallet Direct‘</li>
+</ol>
+<p><img src="https://lh5.googleusercontent.com/gQrFH4D73Fs7aHktXUcStHQ2q7QYFpfJfFhZkr3oCGuAx2-x-aHM0jhl1Fh6NZWudWWisu8G4pAaxv5xio8Anqtubv9i356GUtrDOVr_hXzxFWHCFiYoodi6afnPCLxytShx_W1t" alt="img" style="zoom:50%;" /></p>
+<ol>
+<li>Select one of your assets from the account balance of GSYS.com</li>
+</ol>
+<p><img src="https://lh5.googleusercontent.com/s17XoOQR38OkjAILbcWVamcqejvHZpXMM-86eZLxLjd9_gFY4fKFkCVn8OvVOx8iFmJEe1GtXzkzD-JR5N5SDM9G_b4N-jZQ2MCvj8C_uErLqZ4SnRs8SZCvY6P7i3fUPlHMIe6-" alt="img" style="zoom:50%;" /></p>
+<p>Fill in the amount</p>
+<p><img src="https://lh4.googleusercontent.com/6ZTb2FgPI6RM8p_3KKiB6W1WZ6f-jb1lpubr76gNoVCY5Skle5uCtv67oL0SdJzYKYQV6i-ygu5ecYTYC0y1oOIqn-YRDCFdypEgZV0j_ji141mEVXvhC_-ThXtoEDc7r5rlmip4" alt="img" style="zoom:50%;" /></p>
+<p>Confirm your withdrawal transaction by following the verification process</p>
+<p><img src="https://lh5.googleusercontent.com/vM5w-y20BB2pr_RgG2Af-zwtimMjHqHmjzulCBm_ACP7dnfxWWaRp5zgrABOyhFDEFFa5zm0nuoO2rg_-0-fTs2fsHFJUX9pAgJ2GfHPl7D1OgIyZdOZBlvwsOW3F-U_m68MsGdg" alt="img" style="zoom:50%;" /></p>
+<p>Wait for your tokens to come</p>
+<p><img src="https://lh3.googleusercontent.com/GtUHs9J1IbvLRhVCuPG0xCCzDEI9KjiZpVXGxRXfnukl6OxHG7GqCaUI5K6Zew4OByG1mNobgfjzjOjJGlae0LI_dpgL-1VNGsxzf39HMzS3QzXABhsTyEWya50LdX91fdeNjpco" alt="img" style="zoom:50%;" /></p>
+<h3 id="how-to-deposit-tokens-from-your-gsys-extension-wallet-account-to-a-paired-gsyscom-account">How to Deposit Tokens from your GSYS Extension wallet account to a paired GSYS.com account?</h3>
+<ol>
+<li>Unlock your pairs account of GSYS Extension wallet
+Click on the “Send” button.</li>
+</ol>
+<p><img src="https://lh6.googleusercontent.com/NppXCGw5R4sWIEdMc9cItLhFLWY2cO5nz3U45bb2l1_WWtBkAm_6u09kok0MroESlFh5qDjBX54vyAJaYIzj2pBEfYNr7Gk8MdjoU8JM4BWk8vv-fE1y468qy-YjeVV3inUMFcmW" alt="img" style="zoom:50%;" /></p>
+<ol>
+<li>Choose one of your assets and the paired account as the recipient</li>
+</ol>
+<p><img src="https://lh5.googleusercontent.com/6nQxZRYQYJJm2F2Wi1sAoFVoonNcMqnAFANN3hnpASxQGse1fEhuZQgI6be1a8UhO9bMBYQ9z66xhl0wLu4MOUKiSVQyfD0TyfbDigQJEssm9ultQ372U1SO6ZJmBVhwGnythZg9" alt="img" style="zoom:50%;" /></p>
+<ol>
+<li>Confirm your transfer</li>
+</ol>
+<p><img src="https://lh4.googleusercontent.com/lob8dPvWbcNqTtCmjYn1DfjVxnyR1tFUlRcs6LE3mIA7JVt1WxH7JPTtdxu6XreyFIdtT331KpcXXx7yyE3Pcii8ImCTBo2-TsJu0DNtI2IA0s-1QQu7_cGIwmcUgo0Shwj05WtS" alt="img" style="zoom:50%;" /></p>
+<ol>
+<li>Wait for your confirmation</li>
+</ol>
+<p><img src="https://lh4.googleusercontent.com/5Md-wiYWZyl4F9ruEAtA3K0SCx0YNJKxzk47fvnhdbPZqF8F-dSe3iGrEUq2Sr_62Twkmvk8Y2RCoy7VnoRxzePOT-T-Ta9bpNEWvX-k0pFeKvvnx87CM5zkqvxvb9oXZvk8sGp4" alt="img" style="zoom:50%;" /></p>
+<h3 id="how-to-view-your-withdrawal-history-between-paired-accounts">How to view your withdrawal history between paired accounts?</h3>
+<ul>
+<li>Click on the “Manage” button to view the details of your account</li>
+</ul>
+<p><img src="https://lh5.googleusercontent.com/sU3RmN-wo6gCR3R9Jn9fyMLay06DhbNiv_UHbkoBcSqaOTsJh4mZl00Hm8ARnNOXJnv7He2Is9rgSuuHhbpjPS-QAk5G-S7n_S-n5AcBrUqIsPI3vz3sd1hqf932zWhO5j5CUtdo" alt="img" style="zoom:50%;" /></p>
+<ul>
+<li>Click on “Transaction History”</li>
+</ul>
+<p><img src="https://lh6.googleusercontent.com/w7JJIrAKw6714k4OMlkTDAzg7HumiUFxNpMBhq0xJ6QiI0wYsRXpceXutTEvsgfYn_eubl4WnWGq4JKEuYHPMkX4ZZpevSfAws6CdHzh6XzwqxJtsN5QZMNbhspvKTgHWhoDKaPh" alt="img" style="zoom:50%;" /></p>
+<ul>
+<li>View the history of withdrawal transfers</li>
+</ul>
+<p><img src="https://lh6.googleusercontent.com/hy1rG61OS64mT9jjlHPjY2iiEq-qb5B5gn3BDF-033_zJhV8ITZzT0GLvU7DX0IP4HGiU5ANQbWkyui-u6XEnQTlHN4lQM3x9iAofvcbHSy_uzdcT1JGKsLt6iLotgUVr-beyZM5" alt="img" style="zoom:50%;" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

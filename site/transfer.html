@@ -1,0 +1,1638 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/transfer.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Asset Transfer - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#asset-transfer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Asset Transfer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet/arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simple-transfer-and-memo" class="md-nav__link">
+    Simple Transfer and Memo
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Transfer and Memo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-wallet" class="md-nav__link">
+    Web wallet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-send" class="md-nav__link">
+    Multi-send
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-transfer-transaction" class="md-nav__link">
+    Verify Transfer Transaction
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/transfer.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="asset-transfer">Asset Transfer</h1>
+<p><code>Transfer</code> is the most basic transaction Genesys Chain supports, it moves assets among different addresses.</p>
+<p>Please note the fees must be paid first in GSYS before the transaction can be executed.</p>
+<p>If you want to read more about the idea of account and balance, please refer to this <a href="account.html">doc</a>.</p>
+<h2 id="simple-transfer-and-memo">Simple Transfer and Memo</h2>
+<p>Before transferring tokens to someone else, please make sure that you have an account with enough balance
+and have unlocked your wallet on browser or restored your key via CLI.</p>
+<p>You can always input a "memo" sentence as extra information to be recorded on the blockchain, though it has a limit on the length.</p>
+<h3 id="web-wallet">Web wallet</h3>
+<p>You can easily send tokens to another address on web wallet.</p>
+<p><img alt="" src="assets/web_wallet_transfer.png" /></p>
+<p>First, you need to choose what asset you want to send.</p>
+<p>Then you input the address you want to send tokens to and amount of token.</p>
+<p>And you can also input memo here and size of memo is restricted to 128 bytes.</p>
+<p>Fee charged and balance will be showed in below.</p>
+<h3 id="cli">CLI</h3>
+<p>If you want to send token to an address, make sure you have restored your key. You can list all of your keys:
+<div class="highlight"><pre><span></span><code> ./eth-cli keys list --home ~/.eth-cli
+NAME:   TYPE:   ADDRESS:                        PUBKEY:
+<span class="nb">test</span>    <span class="nb">local</span>   bnb17kwznuljsy4n89wcjd6esx2j5t0w326c03xhyr  bncp1addwnpepq2gudmfe0dqqax3f57j9azy5rujlwcra4w8ueehsl5whzhlvczxuuakuldy
+</code></pre></div></p>
+<p>Query your addresses on testnet</p>
+<div class="highlight"><pre><span></span><code>$  ./eth-cli keys list  PUBKEY:
+<span class="nb">test</span>    <span class="nb">local</span>   tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5 bnbp1addwnpepqgfehhv4meevy2kz52c0s7znk8x2969dl8zc5jngn36axf3szdzp5efearf
+</code></pre></div>
+<p>You can query your balance on mainnet before send tokens.</p>
+<div class="highlight"><pre><span></span><code> ./eth-cli account bnb1XXXXXXXXXXXXXXXXXXX --chain-id GSYS-Chain-Tigris --node  https://dataseed5.defibit.io:443 --indent
+<span class="o">{</span>
+  <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;bnbchain/Account&quot;</span>,
+  <span class="s2">&quot;value&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;base&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;bnb14h5yfk0n54msscs3hjfupscx2s9efw62sg3phh&quot;</span>,
+      <span class="s2">&quot;coins&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&quot;denom&quot;</span>: <span class="s2">&quot;GSYS&quot;</span>,
+          <span class="s2">&quot;amount&quot;</span>: <span class="s2">&quot;100000000&quot;</span>
+        <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">&quot;public_key&quot;</span>: null,
+      <span class="s2">&quot;account_number&quot;</span>: <span class="s2">&quot;56&quot;</span>,
+      <span class="s2">&quot;sequence&quot;</span>: <span class="s2">&quot;0&quot;</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;&quot;</span>,
+    <span class="s2">&quot;frozen&quot;</span>: null,
+    <span class="s2">&quot;locked&quot;</span>: null
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>You can query your balance on testnet before send tokens.</p>
+<div class="highlight"><pre><span></span><code>./eth-cli account tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5 --chain-id GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80 --indent
+
+<span class="o">{</span>
+  <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;bnbchain/Account&quot;</span>,
+  <span class="s2">&quot;value&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;base&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5&quot;</span>,
+      <span class="s2">&quot;coins&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&quot;denom&quot;</span>: <span class="s2">&quot;GSYS&quot;</span>,
+          <span class="s2">&quot;amount&quot;</span>: <span class="s2">&quot;100000000&quot;</span>
+        <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">&quot;public_key&quot;</span>: null,
+      <span class="s2">&quot;account_number&quot;</span>: <span class="s2">&quot;56&quot;</span>,
+      <span class="s2">&quot;sequence&quot;</span>: <span class="s2">&quot;0&quot;</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;&quot;</span>,
+    <span class="s2">&quot;frozen&quot;</span>: null,
+    <span class="s2">&quot;locked&quot;</span>: null
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Then you can send token.</p>
+<p>Please note that you need to boosted the amount you want to send by <strong>e^8</strong> .</p>
+<p>Example on <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli send --from from-key-name --to to-address --amount <span class="m">200000000</span>:GSYS --chain-id GSYS-Chain-Tigris --node  https://dataseed5.defibit.io:443 --json --memo <span class="s2">&quot;Test transfer&quot;</span>
+Password to sign with <span class="s1">&#39;test&#39;</span>:
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>:<span class="s2">&quot;272155&quot;</span>,
+   <span class="s2">&quot;TxHash&quot;</span>:<span class="s2">&quot;A8F78BF8736A35B9433CA9CD1CDD03A8FB3D5D82&quot;</span>,
+   <span class="s2">&quot;Response&quot;</span>:<span class="o">{</span>
+      <span class="s2">&quot;log&quot;</span>:<span class="s2">&quot;Msg 0: &quot;</span>,
+      <span class="s2">&quot;tags&quot;</span>:<span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;c2VuZGVy&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5jMTdrd3pudWxqc3k0bjg5d2NqZDZlc3gyajV0MHczMjZjMDN4aHly&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5jMWw3a3IzNWRnajNqZXpqdnc2bnQ2enlxY215dDJqaDdyczJ2NG45&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;YWN0aW9u&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;c2VuZA==&quot;</span>
+         <span class="o">}</span>
+      <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:
+<div class="highlight"><pre><span></span><code>./eth-cli send --from from-key-name --to to-address --amount <span class="m">200000000</span>:GSYS --chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80 --json --memo <span class="s2">&quot;Test transfer&quot;</span>
+
+Password to sign with <span class="s1">&#39;test&#39;</span>:
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>:<span class="s2">&quot;272155&quot;</span>,
+   <span class="s2">&quot;TxHash&quot;</span>:<span class="s2">&quot;A8F78BF8736A35B9433CA9CD1CDD03A8FB3D5D82&quot;</span>,
+   <span class="s2">&quot;Response&quot;</span>:<span class="o">{</span>
+      <span class="s2">&quot;log&quot;</span>:<span class="s2">&quot;Msg 0: &quot;</span>,
+      <span class="s2">&quot;tags&quot;</span>:<span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;c2VuZGVy&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5jMTdrd3pudWxqc3k0bjg5d2NqZDZlc3gyajV0MHczMjZjMDN4aHly&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5jMWw3a3IzNWRnajNqZXpqdnc2bnQ2enlxY215dDJqaDdyczJ2NG45&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;YWN0aW9u&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;c2VuZA==&quot;</span>
+         <span class="o">}</span>
+      <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></p>
+<p>If you are not familiar with CLI, you can use <code>-h</code> to get helps:
+<div class="highlight"><pre><span></span><code> ./eth-cli send -h
+Create and sign a send tx
+
+Usage:
+  eth-cli send <span class="o">[</span>flags<span class="o">]</span>
+
+Flags:
+      --account-number int   AccountNumber number to sign the tx
+      --amount string        Amount of coins to send
+      --async                broadcast transactions asynchronously
+      --chain-id string      Chain ID of Genesys Chain node
+      --dry-run              ignore the perform a simulation of a transaction, but don<span class="s1">&#39;t broadcast it</span>
+<span class="s1">      --from string          Name or address of private key with which to sign</span>
+<span class="s1">      --generate-only        build an unsigned transaction and write it to STDOUT</span>
+<span class="s1">  -h, --help                 help for send</span>
+<span class="s1">      --indent               Add indent to JSON response</span>
+<span class="s1">      --json                 return output in json format</span>
+<span class="s1">      --ledger               Use a connected Ledger device</span>
+<span class="s1">      --memo string          Memo to send along with transaction</span>
+<span class="s1">      --node string          &lt;host&gt;:&lt;port&gt; to tendermint rpc interface for this chain (default &quot;tcp://localhost:26657&quot;)</span>
+<span class="s1">      --print-response       return tx response (only works with async = false) (default true)</span>
+<span class="s1">      --sequence int         Sequence number to sign the tx</span>
+<span class="s1">      --source int           Source of tx</span>
+<span class="s1">      --to string            Address to send coins</span>
+<span class="s1">      --trust-node           Trust connected full node (don&#39;</span>t verify proofs <span class="k">for</span> responses<span class="o">)</span> <span class="o">(</span>default <span class="nb">true</span><span class="o">)</span>
+
+Global Flags:
+  -e, --encoding string   Binary encoding <span class="o">(</span>hex<span class="p">|</span>b64<span class="p">|</span>btc<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;hex&quot;</span><span class="o">)</span>
+      --home string       directory <span class="k">for</span> config and data <span class="o">(</span>default <span class="s2">&quot;/root/.eth-cli&quot;</span><span class="o">)</span>
+  -o, --output string     Output format <span class="o">(</span>text<span class="p">|</span>json<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;text&quot;</span><span class="o">)</span>
+      --trace             print out full stack trace on errors
+</code></pre></div></p>
+<h3 id="multi-send">Multi-send</h3>
+<p>Sometimes, you may want to transfer tokens to multiple people. So <code>eth-cli</code> also provides you a <code>multi-send</code> command.</p>
+<p>You can use <code>-h</code> to get helps:
+<div class="highlight"><pre><span></span><code> ./eth-cli token multi-send -h
+Create and sign a multi send tx
+
+Usage:
+  eth-cli token multi-send <span class="o">[</span>flags<span class="o">]</span>
+
+Flags:
+      --account-number int      AccountNumber number to sign the tx
+      --async                   broadcast transactions asynchronously
+      --chain-id string         Chain ID of tendermint node
+      --dry-run                 ignore the perform a simulation of a transaction, but don<span class="s1">&#39;t broadcast it</span>
+<span class="s1">      --from string             Name or address of private key with which to sign</span>
+<span class="s1">      --generate-only           build an unsigned transaction and write it to STDOUT</span>
+<span class="s1">  -h, --help                    help for multi-send</span>
+<span class="s1">      --indent                  Add indent to JSON response</span>
+<span class="s1">      --json                    return output in json format</span>
+<span class="s1">      --ledger                  Use a connected Ledger device</span>
+<span class="s1">      --memo string             Memo to send along with transaction</span>
+<span class="s1">      --node string             &lt;host&gt;:&lt;port&gt; to tendermint rpc interface for this chain (default &quot;tcp://localhost:26657&quot;)</span>
+<span class="s1">      --print-response          return tx response (only works with async = false) (default true)</span>
+<span class="s1">      --sequence int            Sequence number to sign the tx</span>
+<span class="s1">      --source int              Source of tx</span>
+<span class="s1">      --transfers string        Transfers details, format: [{&quot;to&quot;: &quot;addr&quot;, &quot;amount&quot;: &quot;1:GSYS,2:BTC&quot;}, ...]</span>
+<span class="s1">      --transfers-file string   File of transfers details, if transfers-file is not empty, --transfers will be ignored</span>
+<span class="s1">      --trust-node              Trust connected full node (don&#39;</span>t verify proofs <span class="k">for</span> responses<span class="o">)</span> <span class="o">(</span>default <span class="nb">true</span><span class="o">)</span>
+
+Global Flags:
+  -e, --encoding string   Binary encoding <span class="o">(</span>hex<span class="p">|</span>b64<span class="p">|</span>btc<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;hex&quot;</span><span class="o">)</span>
+      --home string       directory <span class="k">for</span> config and data <span class="o">(</span>default <span class="s2">&quot;/Users/wuzhenxing/.eth-cli&quot;</span><span class="o">)</span>
+  -o, --output string     Output format <span class="o">(</span>text<span class="p">|</span>json<span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;text&quot;</span><span class="o">)</span>
+      --trace             print out full stack trace on errors
+</code></pre></div></p>
+<p>The difference here is you have to construct the transfer detail by yourself. You have to specify <code>--transfers</code> flag and
+format is showed above. In the same time, you can write the transaction detail in a file and specify <code>--transfers-file</code>
+flag and read from the file contains transaction.</p>
+<p>Example, you can specify <code>--transfers</code> and send it to <strong>mainnet</strong>:</p>
+<div class="highlight"><pre><span></span><code> ./eth-cli token multi-send --home ./testnodecli --from <span class="nb">test</span> --chain-id GSYS-Chain-Tigris --node  https://dataseed5.defibit.io:443  --transfers <span class="s2">&quot;[{\&quot;to\&quot;:\&quot;bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl\&quot;,\&quot;amount\&quot;:\&quot;100000000000000:GSYS\&quot;},{\&quot;to\&quot;:\&quot;bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw\&quot;,\&quot;amount\&quot;:\&quot;100000000000000:GSYS\&quot;}]&quot;</span> --json
+Password to sign with <span class="s1">&#39;test&#39;</span>:
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>:<span class="s2">&quot;1412&quot;</span>,
+   <span class="s2">&quot;TxHash&quot;</span>:<span class="s2">&quot;A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138&quot;</span>,
+   <span class="s2">&quot;Response&quot;</span>:<span class="o">{</span>
+      <span class="s2">&quot;log&quot;</span>:<span class="s2">&quot;Msg 0: &quot;</span>,
+      <span class="s2">&quot;tags&quot;</span>:<span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;c2VuZGVy&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;YWN0aW9u&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;c2VuZA==&quot;</span>
+         <span class="o">}</span>
+      <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Example on <strong>testnet</strong>:</p>
+<div class="highlight"><pre><span></span><code>./eth-cli token multi-send --home ./testnodecli --from <span class="nb">test</span> --chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80  --transfers <span class="s2">&quot;[{\&quot;to\&quot;:\&quot;tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5\&quot;,\&quot;amount\&quot;:\&quot;100000000000000:GSYS\&quot;},{\&quot;to\&quot;:\&quot;tbnb1e244vmvym7g6cn9lk4hmhf9p2f9jaf0x9hxmwc\&quot;,\&quot;amount\&quot;:\&quot;100000000000000:GSYS\&quot;}]&quot;</span> --json
+
+Password to sign with <span class="s1">&#39;test&#39;</span>:
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>:<span class="s2">&quot;1412&quot;</span>,
+   <span class="s2">&quot;TxHash&quot;</span>:<span class="s2">&quot;A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138&quot;</span>,
+   <span class="s2">&quot;Response&quot;</span>:<span class="o">{</span>
+      <span class="s2">&quot;log&quot;</span>:<span class="s2">&quot;Msg 0: &quot;</span>,
+      <span class="s2">&quot;tags&quot;</span>:<span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;c2VuZGVy&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;YWN0aW9u&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;c2VuZA==&quot;</span>
+         <span class="o">}</span>
+      <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>And you can also try <code>--transfers-file</code>.</p>
+<p>Assume that you have a file named <code>transaction.json</code> in your current path and content is :
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;bnb1g5p04snezgpky203fq6da9qyjsy2k9kzr5yuhl&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="s2">&quot;100000000000000:GSYS&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;bnb1l86xty0m55ryct9pnypz6chvtsmpyewmhrqwxw&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="s2">&quot;100000000000000:GSYS&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div></p>
+<p>Then you can specify <code>--transfers-file</code> and send it to <strong>mainnet</strong>:
+<div class="highlight"><pre><span></span><code> ./eth-cli token multi-send --home ./testnodecli --from <span class="nb">test</span> --chain-id GSYS-Chain-Tigris --node  https://dataseed5.defibit.io:443  --transfers-file ./transaction.json --json
+Password to sign with <span class="s1">&#39;test&#39;</span>:
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>:<span class="s2">&quot;1412&quot;</span>,
+   <span class="s2">&quot;TxHash&quot;</span>:<span class="s2">&quot;A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138&quot;</span>,
+   <span class="s2">&quot;Response&quot;</span>:<span class="o">{</span>
+      <span class="s2">&quot;log&quot;</span>:<span class="s2">&quot;Msg 0: &quot;</span>,
+      <span class="s2">&quot;tags&quot;</span>:<span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;c2VuZGVy&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;YWN0aW9u&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;c2VuZA==&quot;</span>
+         <span class="o">}</span>
+      <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></p>
+<p>Example on <strong>testnet</strong>:
+<div class="highlight"><pre><span></span><code> ./eth-cli token multi-send --home ./testnodecli --from test--chain-id<span class="o">=</span>GSYS-Chain-Ganges --node<span class="o">=</span>data-seed-pre-2-s1.genesys.network:80  --transfers-file ./transaction.json --json
+
+Password to sign with <span class="s1">&#39;test&#39;</span>:
+<span class="o">{</span>
+   <span class="s2">&quot;Height&quot;</span>:<span class="s2">&quot;1412&quot;</span>,
+   <span class="s2">&quot;TxHash&quot;</span>:<span class="s2">&quot;A238C3C33625B5398FE648BD3FE9822CB7A07A2DB7778376546916F81C634138&quot;</span>,
+   <span class="s2">&quot;Response&quot;</span>:<span class="o">{</span>
+      <span class="s2">&quot;log&quot;</span>:<span class="s2">&quot;Msg 0: &quot;</span>,
+      <span class="s2">&quot;tags&quot;</span>:<span class="o">[</span>
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;c2VuZGVy&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMXFnOTRzMnYzM3NyNTVrNDAybnN2M3NmY3ozMmVtdGF3NmRjeTk2&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWc1cDA0c25lemdwa3kyMDNmcTZkYTlxeWpzeTJrOWt6cjV5dWhs&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;cmVjaXBpZW50&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;Ym5iMWw4Nnh0eTBtNTVyeWN0OXBueXB6NmNodnRzbXB5ZXdtaHJxd3h3&quot;</span>
+         <span class="o">}</span>,
+         <span class="o">{</span>
+            <span class="s2">&quot;key&quot;</span>:<span class="s2">&quot;YWN0aW9u&quot;</span>,
+            <span class="s2">&quot;value&quot;</span>:<span class="s2">&quot;c2VuZA==&quot;</span>
+         <span class="o">}</span>
+      <span class="o">]</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></p>
+<h2 id="verify-transfer-transaction">Verify Transfer Transaction</h2>
+<p>To confirm that your transaction went through, you can use the following queries:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;hash&quot;</span><span class="p">:</span><span class="s2">&quot;E79DE52B7D8F6BA93787C5B0389AF26C0C29C03BC84DAE42317965797E38076E&quot;</span><span class="p">,</span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="s2">&quot;1412766&quot;</span><span class="p">,</span><span class="nt">&quot;tx&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;auth/StdTx&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;msg&quot;</span><span class="p">:[{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;cosmos-sdk/Send&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;inputs&quot;</span><span class="p">:[{</span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;tbnb1sylyjw032eajr9cyllp26n04300qzzre38qyv5&quot;</span><span class="p">,</span><span class="nt">&quot;coins&quot;</span><span class="p">:[{</span><span class="nt">&quot;denom&quot;</span><span class="p">:</span><span class="s2">&quot;GSYS&quot;</span><span class="p">,</span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="s2">&quot;20&quot;</span><span class="p">}]}],</span><span class="nt">&quot;outputs&quot;</span><span class="p">:[{</span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;tbnb1qq559fkes779t3q9p9aegnjplvtc53yg9vusah&quot;</span><span class="p">,</span><span class="nt">&quot;coins&quot;</span><span class="p">:[{</span><span class="nt">&quot;denom&quot;</span><span class="p">:</span><span class="s2">&quot;GSYS&quot;</span><span class="p">,</span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="s2">&quot;20&quot;</span><span class="p">}]}]}}],</span><span class="nt">&quot;signatures&quot;</span><span class="p">:[{</span><span class="nt">&quot;pub_key&quot;</span><span class="p">:{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;tendermint/PubKeySecp256k1&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;AhOb3ZXecsIqwqKw+HhTscyi6K35xYpKaJx10yYwE0Qa&quot;</span><span class="p">},</span><span class="nt">&quot;signature&quot;</span><span class="p">:</span><span class="s2">&quot;AlpHUBlC/V0cR7YNm5G46aAjmeRIxjkX9Vg8EtTKkfgPso+snT3/r2nRNjsphtjTonub3VYfE4lwOnjpY+Jwcg==&quot;</span><span class="p">,</span><span class="nt">&quot;account_number&quot;</span><span class="p">:</span><span class="s2">&quot;406226&quot;</span><span class="p">,</span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="s2">&quot;27&quot;</span><span class="p">}],</span><span class="nt">&quot;memo&quot;</span><span class="p">:</span><span class="s2">&quot;Test transfer&quot;</span><span class="p">,</span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">}},</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="s2">&quot;Msg 0: &quot;</span><span class="p">,</span><span class="nt">&quot;tags&quot;</span><span class="p">:[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;c2VuZGVy&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;dGJuYjFzeWx5ancwMzJlYWpyOWN5bGxwMjZuMDQzMDBxenpyZTM4cXl2NQ==&quot;</span><span class="p">},{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;cmVjaXBpZW50&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;dGJuYjFxcTU1OWZrZXM3Nzl0M3E5cDlhZWduanBsdnRjNTN5Zzl2dXNhaA==&quot;</span><span class="p">},{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;YWN0aW9u&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;c2VuZA==&quot;</span><span class="p">}]}}</span><span class="w"></span>
+</code></pre></div>
+As you can see from the example output, this transaction is executed at block height 1412766 and you could read about the details.
+Double check with blockchain explorer if you interact with the network through a  full-node.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

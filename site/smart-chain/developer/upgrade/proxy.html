@@ -1,0 +1,1538 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/smart-chain/developer/upgrade/proxy.html">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Upgradeable BLUE20 Contracts on TC - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#upgradeable-blue20-contracts-on-tc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Upgradeable BLUE20 Contracts on TC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet/arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-upgradeable-contracts" class="md-nav__link">
+    What are Upgradeable Contracts?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-upgradeable-blue20-contracts" class="md-nav__link">
+    Writing Upgradeable BLUE20 Contracts
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing Upgradeable BLUE20 Contracts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initializers" class="md-nav__link">
+    Initializers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-truffle" class="md-nav__link">
+    Using  Truffle
+  </a>
+  
+    <nav class="md-nav" aria-label="Using  Truffle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-environment" class="md-nav__link">
+    Setting up the Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-upgradeable-contract" class="md-nav__link">
+    Create upgradeable contract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-contract-locally" class="md-nav__link">
+    Test the contract locally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-control" class="md-nav__link">
+    Transfer Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-owner" class="md-nav__link">
+    Transfer Owner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-on-testnet" class="md-nav__link">
+    Deploy on Testnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-version-of-our-implementation" class="md-nav__link">
+    Create a new version of our implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-upgrade-locally" class="md-nav__link">
+    Test the upgrade locally
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/smart-chain/developer/upgrade/proxy.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="upgradeable-blue20-contracts-on-tc">Upgradeable BLUE20 Contracts on TC</h1>
+<h2 id="what-are-upgradeable-contracts">What are Upgradeable Contracts?</h2>
+<p>Smart contracts in EVM are designed to be immutable. Once you create them there is no way to modify them, effectively acting as an unbreakable contract among participants.What do I do if I want to expand the functionality of my contracts? What if there is a bug in the contract that leads to a loss of funds? What if a vulnerability in the Solidity compiler is discovered?
+Here’s what you’d need to do to fix a bug in a contract you cannot upgrade:</p>
+<ul>
+<li>Deploy a new version of the contract</li>
+<li>Manually migrate all state from the old one contract to the new one (which can be very expensive in terms of gas fees!)</li>
+<li>Update all contracts that interacted with the old contract to use the address of the new one</li>
+<li>Reach out to all your users and convince them to start using the new deployment (and handle both contracts being used simultaneously, as users are slow to migrate)</li>
+</ul>
+<p>There are several approaches that allow us to make some changes to smart contracts.</p>
+<p><strong>Separate logic and data</strong></p>
+<p>By using this approach, data will be read from a designated data contract directly. This is a rather common approach that is also used outside of Solidity. One of the main disadvantages of this approach is that you cannot change the interface of contracts external to the entire system, and you cannot add or remove functions.</p>
+<p><strong>Delegatecall Proxy</strong></p>
+<p><code>delegatecall</code> opcode was implemented in <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7.md">EIP-7</a>. It is possible to delegate execution to other contract, but execution context stays the same. As with delegatecall, the msg.sender will remain that of the caller of the proxy contract. One of the main disadvantages of this approach is that contract code of the proxy will not reflect the state that it stores.</p>
+<h2 id="writing-upgradeable-blue20-contracts">Writing Upgradeable BLUE20 Contracts</h2>
+<p>It’s worth mentioning that these restrictions have their roots in how the Ethereum VM works, and apply to all projects that work with upgradeable contracts, not just OpenZeppelin Upgrades.</p>
+<h3 id="initializers">Initializers</h3>
+<p>You can use your Solidity contracts in the OpenZeppelin Upgrades without any modifications, except for their constructors. Due to a requirement of the proxy-based upgradeability system, no constructors can be used in upgradeable contracts. To learn about the reasons behind this restriction, head to <a href="https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies#the-constructor-caveat">Proxies</a>.</p>
+<p>This means that, when using a contract with the OpenZeppelin Upgrades, you need to change its constructor into a regular function, typically named initialize, where you run all the setup logic:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nx">pragma</span><span class="w"> </span><span class="nx">solidity</span><span class="w"> </span><span class="o">^</span><span class="mf">0.6.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;@openzeppelin/contracts/proxy/TransparentUpgradeableProxy.sol&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">contract</span><span class="w"> </span><span class="nx">BLUE20UpgradeableProxy</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">TransparentUpgradeableProxy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">address</span><span class="w"> </span><span class="nx">logic</span><span class="p">,</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="nx">admin</span><span class="p">,</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="nx">TransparentUpgradeableProxy</span><span class="p">(</span><span class="nx">logic</span><span class="p">,</span><span class="w"> </span><span class="nx">admin</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="kr">public</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">}}</span><span class="w"></span>
+</code></pre></div>
+OpenZeppelin Upgrades provides an Initializable base contract that has an initializer modifier to prevent a contract from being <em>initialized</em> multiple times:
+https://github.com/githubusername/githubrepo/canonical-upgradeable-blue20/blob/47ed7a710e6e86bdc85f2118bf63fc892e3b7716/contracts/BLUE20TokenImplementation.sol#L37</p>
+<p><div class="highlight"><pre><span></span><code><span class="w"> </span><span class="cm">/**</span>
+<span class="cm">     * @dev sets initials supply and the owner</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">initialize</span><span class="p">(</span><span class="nx">string</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">string</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="nx">symbol</span><span class="p">,</span><span class="w"> </span><span class="nx">uint8</span><span class="w"> </span><span class="nx">decimals</span><span class="p">,</span><span class="w"> </span><span class="nx">uint256</span><span class="w"> </span><span class="nx">amount</span><span class="p">,</span><span class="w"> </span><span class="nx">bool</span><span class="w"> </span><span class="nx">mintable</span><span class="p">,</span><span class="w"> </span><span class="nx">address</span><span class="w"> </span><span class="nx">owner</span><span class="p">)</span><span class="w"> </span><span class="kr">public</span><span class="w"> </span><span class="nx">initializer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">_owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">owner</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">_symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">symbol</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">_decimals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">decimals</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">_mintable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mintable</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">_mint</span><span class="p">(</span><span class="nx">owner</span><span class="p">,</span><span class="w"> </span><span class="nx">amount</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+BLUE20 contract initializes the token’s name, symbol, and decimals in its constructor. You should not use these contracts in your BLUE20 Upgrades contract. , make sure to use the <code>upgradableBLUE20implementation</code> that has been modified to use initializers instead of constructors.
+https://github.com/githubusername/githubrepo-genesis-contract/blob/42922472b43397fbca9d0c84c7f72fbfaf39efc3/contracts/blue20_template/BLUE20Token.template#L351</p>
+<div class="highlight"><pre><span></span><code><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="kr">public</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nx">TOKEN_NAME</span><span class="p">}};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nx">TOKEN_SYMBOL</span><span class="p">}};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_decimals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nx">DECIMALS</span><span class="p">}};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_totalSupply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="nx">TOTAL_SUPPLY</span><span class="p">}};</span><span class="w"></span>
+<span class="w">    </span><span class="nx">_balances</span><span class="p">[</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_totalSupply</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="using-truffle">Using  Truffle</h2>
+<h3 id="setting-up-the-environment">Setting up the Environment</h3>
+<p>We will begin by creating a new npm project:
+<div class="highlight"><pre><span></span><code>mkdir mycontract &amp;&amp; cd mycontract
+</code></pre></div>
+Then,
+<div class="highlight"><pre><span></span><code>npm init -y
+</code></pre></div></p>
+<h3 id="installation">Installation</h3>
+<p>We will install Truffle.</p>
+<div class="highlight"><pre><span></span><code>npm install --save-dev truffle
+npm install --save-dev @openzeppelin/contracts
+npm install --save-dev zeppelin-solidity
+</code></pre></div>
+<p>When running Truffle select the option to “Create a truffle-config.js”
+<div class="highlight"><pre><span></span><code>npx truffle init
+</code></pre></div></p>
+<h3 id="create-upgradeable-contract">Create upgradeable contract</h3>
+<p>This example token has a fixed supply that is minted to the deployer of the contract.</p>
+<p>https://github.com/githubusername/githubrepo/canonical-upgradeable-blue20/blob/master/contracts/BLUE20TokenImplementation.sol</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">BLUE20TokenImplementation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">artifacts</span><span class="p">.</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;BLUE20TokenImplementation&quot;</span><span class="p">);</span><span class="kd">const</span><span class="w"> </span><span class="nx">BLUE20TokenFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">artifacts</span><span class="p">.</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;BLUE20TokenFactory&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Web3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;web3&#39;</span><span class="p">);</span><span class="kd">const</span><span class="w"> </span><span class="nx">web3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Web3</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Web3</span><span class="p">.</span><span class="nx">providers</span><span class="p">.</span><span class="nx">HttpProvider</span><span class="p">(</span><span class="s1">&#39;http://localhost:8545&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">deployer</span><span class="p">,</span><span class="w"> </span><span class="nx">network</span><span class="p">,</span><span class="w"> </span><span class="nx">accounts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">deployer</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">deployer</span><span class="p">.</span><span class="nx">deploy</span><span class="p">(</span><span class="nx">BLUE20TokenImplementation</span><span class="p">);</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">deployer</span><span class="p">.</span><span class="nx">deploy</span><span class="p">(</span><span class="nx">BLUE20TokenFactory</span><span class="p">,</span><span class="w"> </span><span class="nx">BLUE20TokenImplementation</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span><span class="w"> </span><span class="p">});};</span><span class="w"></span>
+</code></pre></div>
+<h3 id="test-the-contract-locally">Test the contract locally</h3>
+<p>To test upgradeable contracts we should create unit tests for the implementation contract, along with creating higher level tests for testing interaction via the proxy.
+<div class="highlight"><pre><span></span><code><span class="nx">contract</span><span class="p">(</span><span class="s1">&#39;Upgradeable BLUE20 token&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">accounts</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;Create Token&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">BLUE20TokenFactoryInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">BLUE20TokenFactory</span><span class="p">.</span><span class="nx">deployed</span><span class="p">();</span><span class="w">    </span><span class="nx">blue20FactoryOwner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">accounts</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span><span class="w">    </span><span class="nx">blue20Owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">accounts</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w">    </span><span class="nx">proxyAdmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">accounts</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">BLUE20TokenFactoryInstance</span><span class="p">.</span><span class="nx">createBLUE20Token</span><span class="p">(</span><span class="s2">&quot;ABC Token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ABC&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="nx">web3</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">toBN</span><span class="p">(</span><span class="mf">1e18</span><span class="p">),</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">blue20Owner</span><span class="p">,</span><span class="w"> </span><span class="nx">proxyAdmin</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">blue20FactoryOwner</span><span class="p">});</span><span class="w">    </span><span class="nx">truffleAssert</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">tx</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;TokenCreated&quot;</span><span class="p">,(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="nx">blue20TokenAddress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ev</span><span class="p">.</span><span class="nx">token</span><span class="p">;</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="transfer-control">Transfer Control</h3>
+<p>You can change the proxy owner to another address.
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">blue20proxy</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">changeAdmin</span><span class="p">(</span><span class="nx">newAdmin</span><span class="p">).</span><span class="nx">send</span><span class="p">({</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">proxyAdmin</span><span class="p">});</span><span class="w"></span>
+<span class="nx">blue20proxy</span><span class="p">.</span><span class="nx">getPastEvents</span><span class="p">(</span><span class="s2">&quot;AdminChanged&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">fromBlock</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">toBlock</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;latest&quot;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="transfer-owner">Transfer Owner</h3>
+<p>You can change the BLUE20 token owner to another address.
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">blue20</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">transferOwnership</span><span class="p">(</span><span class="nx">accounts</span><span class="p">[</span><span class="mf">5</span><span class="p">]).</span><span class="nx">send</span><span class="p">({</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">accounts</span><span class="p">[</span><span class="mf">1</span><span class="p">]});</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">blue20</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">getOwner</span><span class="p">().</span><span class="nx">call</span><span class="p">({</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">accounts</span><span class="p">[</span><span class="mf">5</span><span class="p">]});</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="deploy-on-testnet">Deploy on Testnet</h3>
+<p>Create the following <code>2_blue20.js</code> script in the migrations directory.
+<div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">deployer</span><span class="p">,</span><span class="w"> </span><span class="nx">network</span><span class="p">,</span><span class="w"> </span><span class="nx">accounts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">deployer</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">deployer</span><span class="p">.</span><span class="nx">deploy</span><span class="p">(</span><span class="nx">BLUE20TokenImplementation</span><span class="p">);</span><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">deployer</span><span class="p">.</span><span class="nx">deploy</span><span class="p">(</span><span class="nx">BLUE20TokenFactory</span><span class="p">,</span><span class="w"> </span><span class="nx">BLUE20TokenImplementation</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span><span class="w"> </span><span class="p">});};</span><span class="w"></span>
+</code></pre></div>
+You can first deploy our contract to a local test (such as ganache-cli) and manually interact with it, then deploy your contract to a public test network.
+<div class="highlight"><pre><span></span><code>$ npx truffle console --network ganache
+</code></pre></div>
+We can interact with our contract using the Truffle console.
+<div class="highlight"><pre><span></span><code>truffle<span class="o">(</span>ganache<span class="o">)</span>&gt; <span class="nv">BLUE20TokenFactoryInstance</span> <span class="o">=</span> await BLUE20TokenFactory.deployed<span class="o">()</span><span class="p">;</span>undefinedtruffle<span class="o">(</span>ganache<span class="o">)</span>&gt; await BLUE20TokenFactoryInstance.createBLUE20Token<span class="o">(</span><span class="s2">&quot;ABC Token&quot;</span>, <span class="s2">&quot;ABC&quot;</span>, <span class="m">18</span>, web3.utils.toBN<span class="o">(</span>1e18<span class="o">)</span>, true, <span class="o">{</span>address1<span class="o">}</span>, <span class="o">{</span>address2<span class="o">})</span><span class="p">;</span>
+</code></pre></div></p>
+<blockquote>
+<p>Note: any secrets such as mnemonics or genesys.network keys should not be committed to version control.</p>
+</blockquote>
+<p>Run <code>truffle migrate</code> with the GSYS testnet to deploy.  We can see our implementation contract 'BLUE20TokenImplementation' and the 'BLUE20TokenFactory' being deployed.
+<div class="highlight"><pre><span></span><code>Deploying &#39;BLUE20TokenImplementation&#39;
+   ------------------------------------
+   &gt; transaction hash:    0xdcd37a388bf9b2f822eff5b816bd4c9db80bc4f6046e3f922cedca12162d46d9
+   &gt; Blocks: 3            Seconds: 8
+   &gt; contract address:    0xB3fbaf029580145885e915B3CAeEd259Edb9DfE1
+   &gt; block number:        5174292
+   &gt; block timestamp:     1609990661
+   &gt; account:             0x133D144F52705cEb3f5801B63b9EBcCF4102f5Ed
+   &gt; balance:             10.648947766
+   &gt; gas used:            1147250 (0x118172)
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.022945 ETH
+
+   Pausing for 5 confirmations...
+   ------------------------------
+   &gt; confirmation number: 2 (block: 5174294)
+   &gt; confirmation number: 3 (block: 5174295)
+   &gt; confirmation number: 5 (block: 5174297)
+
+   Deploying &#39;BLUE20TokenFactory&#39;
+   -----------------------------
+   &gt; transaction hash:    0x821c8355aaecc36a9f7fe50d2b3722c840047883a6bf500343393554d8ce3696
+   &gt; Blocks: 3            Seconds: 8
+   &gt; contract address:    0xDC1015512AbBC71e57a607A121a4aC9CF05D89BC
+   &gt; block number:        5174300
+   &gt; block timestamp:     1609990685
+   &gt; account:             0x133D144F52705cEb3f5801B63b9EBcCF4102f5Ed
+   &gt; balance:             10.629661146
+   &gt; gas used:            964331 (0xeb6eb)
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.01928662 ETH
+</code></pre></div></p>
+<h3 id="create-a-new-version-of-our-implementation">Create a new version of our implementation</h3>
+<p>After a period of time, we decide that we want to add functionality to our contract. In this guide we will add an <code>whitelist</code> function.</p>
+<p>Create the new implementation, <code>BLUE20_V2.sol</code> in your contracts directory with the following Solidity code.
+<div class="highlight"><pre><span></span><code><span class="cm">/**   * @dev sets multiple whitelist address   */</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">multiWhitelistAdd</span><span class="p">(</span><span class="nx">address</span><span class="p">[]</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="nx">addresses</span><span class="p">)</span><span class="w"> </span><span class="nx">external</span><span class="w"> </span><span class="nx">onlyOwner</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">uint256</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">addresses</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">whitelist</span><span class="p">[</span><span class="nx">addresses</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="cm">/**</span>
+<span class="cm">     * @dev remove whitelisted address</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">multiWhitelistRemove</span><span class="p">(</span><span class="nx">address</span><span class="p">[]</span><span class="w"> </span><span class="nx">memory</span><span class="w"> </span><span class="nx">addresses</span><span class="p">)</span><span class="w"> </span><span class="nx">external</span><span class="w"> </span><span class="nx">onlyOwner</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">uint256</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">addresses</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">whitelist</span><span class="p">[</span><span class="nx">addresses</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="cm">/**</span>
+<span class="cm">     * @dev check if is a whitelist address</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">isInWhitelist</span><span class="p">(</span><span class="nx">address</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="nx">internal</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="nx">returns</span><span class="w"> </span><span class="p">(</span><span class="nx">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">whitelist</span><span class="p">[</span><span class="nx">a</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="test-the-upgrade-locally">Test the upgrade locally</h3>
+<p>To test our upgrade we should create unit tests for the new implementation contract, along with creating higher level tests for testing interaction via the proxy, checking that state is maintained across upgrades.</p>
+<p>We will create unit tests for the new implementation contract. We can add to the unit tests we already created to ensure high coverage.</p>
+<p>Create uograde.test.js in your test directory with the following JavaScript.
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">blue20proxy</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">upgradeTo</span><span class="p">(</span><span class="nx">newInstance</span><span class="p">.</span><span class="nx">address</span><span class="p">).</span><span class="nx">send</span><span class="p">({</span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">proxyAdmin</span><span class="p">});</span><span class="w"></span>
+<span class="w"> </span><span class="nx">blue20proxy</span><span class="p">.</span><span class="nx">getPastEvents</span><span class="p">(</span><span class="s2">&quot;Upgraded&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">fromBlock</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">toBlock</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;latest&quot;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span><span class="w"></span>
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

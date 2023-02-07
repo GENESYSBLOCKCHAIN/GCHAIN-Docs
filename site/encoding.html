@@ -1,0 +1,1860 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/encoding.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Genesys Chain Transaction Encoding Specification - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#genesys-chain-transaction-encoding-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Genesys Chain Transaction Encoding Specification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet/arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smart-chain/wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encoding-output" class="md-nav__link">
+    Encoding Output
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoding Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-marshal" class="md-nav__link">
+    JSON Marshal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-marshal" class="md-nav__link">
+    Binary Marshal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genesys-chain-transaction-encoding" class="md-nav__link">
+    Genesys Chain Transaction Encoding
+  </a>
+  
+    <nav class="md-nav" aria-label="Genesys Chain Transaction Encoding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-transaction" class="md-nav__link">
+    Standard Transaction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdsignbytes" class="md-nav__link">
+    StdSignBytes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-bytes-for-signing" class="md-nav__link">
+    Canonical Bytes for Signing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-signature" class="md-nav__link">
+    Standard Signature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-types" class="md-nav__link">
+    Message Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer" class="md-nav__link">
+    Transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neworder" class="md-nav__link">
+    NewOrder
+  </a>
+  
+    <nav class="md-nav" aria-label="NewOrder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#order-id" class="md-nav__link">
+    Order ID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel" class="md-nav__link">
+    Cancel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freeze" class="md-nav__link">
+    Freeze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unfreeze" class="md-nav__link">
+    Unfreeze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vote" class="md-nav__link">
+    Vote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue" class="md-nav__link">
+    Issue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mint" class="md-nav__link">
+    Mint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#burn" class="md-nav__link">
+    Burn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submit-proposal" class="md-nav__link">
+    Submit Proposal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit" class="md-nav__link">
+    Deposit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-account-flags" class="md-nav__link">
+    Set Account Flags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-lock" class="md-nav__link">
+    Time-lock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-unlock" class="md-nav__link">
+    Time-unlock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-relock" class="md-nav__link">
+    Time-relock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htlt" class="md-nav__link">
+    HTLT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deposit-htlt" class="md-nav__link">
+    Deposit HTLT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claim-htlt" class="md-nav__link">
+    Claim HTLT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refund-htlt" class="md-nav__link">
+    Refund HTLT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/encoding.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="genesys-chain-transaction-encoding-specification">Genesys Chain Transaction Encoding Specification</h1>
+<p>Genesys Chain transactions are protocol-based data types and can only be submitted in a compatible encoded frame.</p>
+<p>The fundamental encoding logic is from <a href="https://github.com/tendermint/go-amino">Tendermint Amino</a>, which derives from and is "largely compatible with" Google protocol-buffer's Proto3.</p>
+<p>However the client sides only needs to stick to the specifications outlined below for the most frequently used transactions.</p>
+<h2 id="encoding-output">Encoding Output</h2>
+<p>Genesys Chain (Amino) encoding logic may encode a data structure into two output formats: Binary and JSON.</p>
+<h3 id="json-marshal">JSON Marshal</h3>
+<p>Amino supports JSON encoding natively, which is the same as other usual json marshalers. Except that it can add one more <code>type</code> info for registered type, as shown below.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;amino type name&gt;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;JSON&gt;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="binary-marshal">Binary Marshal</h3>
+<p><strong><a href="resources.html">Please note the below binary encoding logic is subjected to future changes. Please watch out for the community news</a>.</strong></p>
+<p>Binary encoding is a variant of Google's protobuf. The bytes are laid out in the below sequence:</p>
+<ol>
+<li>a <a href="https://developers.google.com/protocol-buffers/docs/encoding#varints">varint</a> encoded integer - it contains the length of the encoded bytes for the object, which is displayed as <code>SIZE-OF-ENCODED</code> in the below structs. Please note that it contains the length of encoded bytes and also the type prefix (below), but not itself, e.g. if the encoded msg is 20 bytes, then the length would be 20 + 4 = 24, while 4 is used for the type prefix bytes.</li>
+<li>an object type prefix of 4-8 bytes - For different type of objects, there will be different type prefixes, and they are displayed as in the specific objects below (data structures).</li>
+<li>a binary encoded object - the encoding is mostly the same as protocol buffer encoding mechanism, except the embedded fields of complex type:<ul>
+<li>to encode data field of some specific types, an object type prefix for the field will be added ahead of the real encoding.</li>
+</ul>
+</li>
+<li>repeated (array) Encoding - it is the same as google protocol buffer, while encoding of the object/struct may contain the type prefix as shown below.</li>
+</ol>
+<h2 id="genesys-chain-transaction-encoding">Genesys Chain Transaction Encoding</h2>
+<p>Below are the data types that can be sent to Genesys Chain as requests, and their encoding layout. To simplify the presentation, we will use a variant of <a href="https://developers.google.com/protocol-buffers/docs/proto3">Google protocol buffer proto3</a> language to illustrate how the data fields are organized. Except the all-capitalized fields, other fields will use the default <code>proto3</code> encoding logic.</p>
+<h3 id="standard-transaction">Standard Transaction</h3>
+<p>Transactions are each wrapped in the below "Standard Transaction": structure:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">StdTx</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint64</span><span class="w"> </span><span class="nx">SIZE</span><span class="o">-</span><span class="nx">OF</span><span class="o">-</span><span class="nx">ENCODED</span><span class="w"> </span><span class="c1">// varint encoded length of the structure after encoding, please note this includes both the below type prefix (4 bytes) and the all encoding bytes</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xF0625DEE</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Msg</span><span class="w"> </span><span class="nx">msgs</span><span class="w"> </span><span class="c1">// array of size 1, containing the transaction message, which are one of the transaction types below. please check the above &quot;Array Encoding&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">StdSignature</span><span class="w"> </span><span class="nx">signatures</span><span class="w"> </span><span class="c1">// array of size 1, containing the standard signature structure of the transaction sender</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">memo</span><span class="w"> </span><span class="c1">// a short sentence of remark for the transaction. Please only `Transfer` transaction allows &#39;memo&#39; input, and other transactions with non-empty `Memo` will be rejected.</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">source</span><span class="w"> </span><span class="c1">// an identifier for tools triggerring this transaction, set to zero if unwilling to disclose.</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="c1">// byte array, reserved for future use</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="stdsignbytes">StdSignBytes</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">StdSignDoc</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">AccountNumber</span><span class="w"> </span><span class="kt">int64</span><span class="w">             </span><span class="s">`json:&quot;account_number&quot;`</span><span class="w"></span>
+<span class="w">  </span><span class="nx">ChainID</span><span class="w">       </span><span class="kt">string</span><span class="w">            </span><span class="s">`json:&quot;chain_id&quot;`</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Memo</span><span class="w">          </span><span class="kt">string</span><span class="w">            </span><span class="s">`json:&quot;memo&quot;`</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Msgs</span><span class="w">          </span><span class="p">[]</span><span class="nx">json</span><span class="p">.</span><span class="nx">RawMessage</span><span class="w"> </span><span class="s">`json:&quot;msgs&quot;`</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Sequence</span><span class="w">      </span><span class="kt">int64</span><span class="w">             </span><span class="s">`json:&quot;sequence&quot;`</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Source</span><span class="w">        </span><span class="kt">int64</span><span class="w">             </span><span class="s">`json:&quot;source&quot;`</span><span class="w"></span>
+<span class="w">  </span><span class="nx">Data</span><span class="w">          </span><span class="p">[]</span><span class="kt">byte</span><span class="w">            </span><span class="s">`json:&quot;data&quot;`</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="canonical-bytes-for-signing">Canonical Bytes for Signing</h3>
+<p>A transaction signature is <strong>not</strong> formed from the Amino-encoded transaction bytes themselves. Rather, a canonical representation of the transaction is generated in JSON format for signing.</p>
+<p>This would allow for clients to sign a transaction off-chain, for example, with a hardware HSM device like a Ledger, or within a micro-service in an algorithmic trading system. An external system will not have to understand Amino encoding to be able to approve of the transaction's content and produce the signed JSON string.</p>
+<p>The canonical bytes for signing are generated from the StdSignBytes method. It produces a JSON string similar to the format below (formatted for clarity):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;sequence&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;64&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;account_number&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;data&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;chain_id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chain-bnb&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;memo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;smiley&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;msgs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="nt">&quot;inputs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">               </span><span class="nt">&quot;coins&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                  </span><span class="p">{</span><span class="w"></span>
+<span class="w">                     </span><span class="nt">&quot;denom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GSYS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                     </span><span class="nt">&quot;amount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200000000&quot;</span><span class="w"></span>
+<span class="w">                  </span><span class="p">}</span><span class="w"></span>
+<span class="w">               </span><span class="p">],</span><span class="w"></span>
+<span class="w">               </span><span class="nt">&quot;address&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bnc1hgm0p7khfk85zpz5v0j8wnej3a90w7098fpxyh&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="p">],</span><span class="w"></span>
+<span class="w">         </span><span class="nt">&quot;outputs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">               </span><span class="nt">&quot;address&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bnc1cku54wwn66w2rkgs3h6v5zxrwtzyew8chcl720&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">               </span><span class="nt">&quot;coins&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                  </span><span class="p">{</span><span class="w"></span>
+<span class="w">                     </span><span class="nt">&quot;denom&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GSYS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                     </span><span class="nt">&quot;amount&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200000000&quot;</span><span class="w"></span>
+<span class="w">                  </span><span class="p">}</span><span class="w"></span>
+<span class="w">               </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="p">],</span><span class="w"></span>
+<span class="w">   </span><span class="nt">&quot;source&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>This JSON string, <strong>with all whitespace removed and keys sorted in alphabetical order</strong>, is signed with the private key of the sender. This signature is then attached to the <code>StdTx</code> structure described in the above section. Please note that the transaction broadcasted to the blockchain is not JSON - the JSON is merely used as a canonical representation to generate the signature.</p>
+<p>The next section describes how the generated signature is attached to a transaction.</p>
+<h3 id="standard-signature">Standard Signature</h3>
+<p>The sender's signature is stored in the <code>Standard Transaction</code> data via a <code>Standard Signature</code>, as shown below. This structure is included in the <code>StdTx</code> (see above).</p>
+<p>Please note that <code>StdSignature</code> itself doesn't have type prefix, while the <code>PubKey</code> does.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">StdSignature</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint64</span><span class="w"> </span><span class="nx">SIZE</span><span class="o">-</span><span class="nx">OF</span><span class="o">-</span><span class="nx">ENCODED</span><span class="w"> </span><span class="c1">// varint encoded length of the structure after encoding</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// please note there is no type prefix for StdSignature</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">PubKey</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mh">0xEB5AE987</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">    </span><span class="kt">uint64</span><span class="w"> </span><span class="nx">SIZE</span><span class="o">-</span><span class="nx">OF</span><span class="o">-</span><span class="nx">ENCODED</span><span class="w"> </span><span class="c1">// varint encoded length of the bytes below</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bytes</span><span class="w"> </span><span class="c1">// no name or field id, just encode the bytes</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">PubKey</span><span class="w"> </span><span class="nx">pub_key</span><span class="w"> </span><span class="c1">// public key bytes of the signer address</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">signature</span><span class="w"> </span><span class="c1">// signature bytes, please check the chain access section for signature generation</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">account_number</span><span class="w"> </span><span class="c1">// another identifier of signer, which can be read from chain by account REST API or RPC</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">sequence</span><span class="w"> </span><span class="c1">// sequence number for the next transaction of the client, which can be read from the chain by account REST API or RPC. Please check the chain access section for details.</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="message-types">Message Types</h3>
+<p>Messages represent the individual operations possible on Genesys Chain, and these can be inserted into the <code>StdTx.msgs</code> field. Message types are otherwise known as "transaction types", and these terms are used interchangebly in this document and in our technical documentation. So far every <code>StdTx</code> transaction "container" can only contain one "message".</p>
+<h4 id="transfer">Transfer</h4>
+<p>Transfer is the transaction used for transferring funds to different addresses.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">Send</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x2A2C87FA</span><span class="w">   </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Token</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Input</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">address</span><span class="w"></span>
+<span class="w">    </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Token</span><span class="w"> </span><span class="nx">coins</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Output</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">address</span><span class="w"></span>
+<span class="w">    </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Token</span><span class="w"> </span><span class="nx">coins</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Input</span><span class="w"> </span><span class="nx">inputs</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Output</span><span class="w"> </span><span class="nx">outputs</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="neworder">NewOrder</h4>
+<p>NewOrder transaction will create a new order to buy or sell tokens on GSYS DEX.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">NewOrder</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xCE6DC043</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="c1">// order originating address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="c1">// order id, please check the Order ID section below for details.</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="c1">// symbol for trading pair in full name of the token</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">ordertype</span><span class="w"> </span><span class="c1">// only accept 2 for now, meaning limit order</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">side</span><span class="w"> </span><span class="c1">// 1 for buy and 2 fory sell</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">price</span><span class="w"> </span><span class="c1">// price of the order, which is the real price multiplied by 1e8 (10^8) and rounded to integer</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">quantity</span><span class="w"> </span><span class="c1">// quantity of the order, which is the real quantity multiplied by 1e8 (10^8) and rounded to integer</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">timeinforce</span><span class="w"> </span><span class="c1">// 1 for Good Till Expire(GTE) order and 3 for Immediate Or Cancel (IOC)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h5 id="order-id">Order ID</h5>
+<p>Order ID is unique across the world. It is generated by sender and acknowledged by GSYS DEX. The current implementation is composed from 3 parts:</p>
+<ol>
+<li>Sender address in HEX format, without human-readable prefix</li>
+<li>A dash sign: <code>-</code></li>
+<li>Sequence number</li>
+</ol>
+<p>E.g. <code>40C2979694BBC961023D1D27BE6FC4D21A9FEBE6-5</code></p>
+<h4 id="cancel">Cancel</h4>
+<p>Cancel transactions (cancel the outstanding/unfilled) orders from the GSYS DEX. After cancel success, the locked quantity on the orders will return back to the originating address balance and become free to use, i.e. transfer or send new orders.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">CancelOrder</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x166E681B</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="c1">// order originating address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="c1">// symbol for trading pair in full name of the token</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">refid</span><span class="w"> </span><span class="c1">// order id of the order to cancel</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="freeze">Freeze</h4>
+<p>Freeze transaction will move the amount of the tokens into a <code>frozen</code> state, in which they cannot be used for transfers or sending new orders.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">TokenFreeze</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xE774B32D</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// owner address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="c1">// token symbol, in full name with &quot;-&quot; suffix</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="c1">// amount of tokens to freeze</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="unfreeze">Unfreeze</h4>
+<p>Unfreeze will reversely turn the amount of <code>frozen</code> tokens back to free state.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">TokenUnfreeze</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x6515FF0D</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// owner address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="c1">// token symbol, in full name with &quot;-&quot; suffix</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="c1">// amount of tokens to unfreeze</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="vote">Vote</h4>
+<p>Vote transactions for proposals.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// please note the field name is the JSON name.</span><span class="w"></span>
+<span class="nx">message</span><span class="w"> </span><span class="nx">Vote</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xA1CADD36</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">proposal_id</span><span class="w"> </span><span class="c1">// ID of the proposal</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">voter</span><span class="w"> </span><span class="c1">// address of the voter</span><span class="w"></span>
+<span class="w">  </span><span class="kt">uint64</span><span class="w"> </span><span class="nx">option</span><span class="w"> </span><span class="c1">// option from OptionSet chosen by the voter</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Below are options for <code>option</code>:
+<div class="highlight"><pre><span></span><code><span class="nx">OptionYes</span><span class="w">           </span><span class="p">=</span><span class="w"> </span><span class="mh">0x01</span><span class="w">  </span><span class="c1">// yes</span><span class="w"></span>
+<span class="nx">OptionAbstain</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="mh">0x02</span><span class="w">  </span><span class="c1">// abstain</span><span class="w"></span>
+<span class="nx">OptionNo</span><span class="w">            </span><span class="p">=</span><span class="w"> </span><span class="mh">0x03</span><span class="w">  </span><span class="c1">// no</span><span class="w"></span>
+<span class="nx">OptionNoWithVeto</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="mh">0x04</span><span class="w">  </span><span class="c1">// no with veto</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="issue">Issue</h4>
+<p>Issue (create) new asset on Genesys Chain.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">IssueTokenValue</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x17EFAB80</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w">  </span><span class="nx">from</span><span class="w">  </span><span class="c1">// issuer&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="c1">// token name</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="c1">// token symbol</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">total_supply</span><span class="w"> </span><span class="c1">// total supply</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nx">mintable</span><span class="w"> </span><span class="c1">// is mintable</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="mint">Mint</h4>
+<p>Mint is used to increase the total supply of a token.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">Mint</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x467E0829</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="c1">// token symbol</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="c1">// increase amount</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="burn">Burn</h4>
+<p>Burn is used to decrease the total supply of a token.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">TokenBurn</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x7ED2D2A0</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">symbol</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="c1">// token symbol</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="c1">// increase amount</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="list">List</h4>
+<p>List is used to add a new trading pair.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">DexList</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xB41DE13F</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">proposal_id</span><span class="w"> </span><span class="c1">// id of corresponding proposal</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">base_asset_symbol</span><span class="w"> </span><span class="c1">// token symbol of base asset</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">quote_asset_symbol</span><span class="w"> </span><span class="c1">// token symbol of quote asset</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">init_price</span><span class="w"> </span><span class="c1">// init price of the new token</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="submit-proposal">Submit Proposal</h4>
+<p>Submit proposal is used to create a proposal for validators about adding trading pairs
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">Submit</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xB42D614E</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="c1">// Title of the proposal</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">description</span><span class="w"> </span><span class="c1">// Description of the proposal</span><span class="w"></span>
+<span class="w">  </span><span class="kt">byte</span><span class="w"> </span><span class="nx">proposal_type</span><span class="w"> </span><span class="c1">// Type of proposal. Initial set {PlainTextProposal, SoftwareUpgradeProposal,ListTradingPair, FixedFeeParams}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">proposer</span><span class="w"> </span><span class="c1">// Address of the proposer</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">VotingPeriod</span><span class="w"> </span><span class="c1">// Length of the voting period (s)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="deposit">Deposit</h4>
+<p>Deposit is used to increase the total deposit of a proposal.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">Deposit</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xA18A56E5</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">ProposalID</span><span class="w"> </span><span class="c1">// ID of the proposal</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">Depositer</span><span class="w"> </span><span class="c1">// Address of the depositer</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="set-account-flags">Set Account Flags</h4>
+<p>You can set the flag value of your account.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">SetAccountFlags</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xBEA6E301</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">flag</span><span class="w"> </span><span class="c1">// account flag</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="time-lock">Time-lock</h4>
+<p>You can only lock tokens on your own account for a certain period of time.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">Timerelock</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x07921531</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">description</span><span class="w"> </span><span class="c1">// Description of the lock</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">lock_time</span><span class="w"> </span><span class="c1">// lock time</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="time-unlock">Time-unlock</h4>
+<p>You can  unlock tokens on your own account after a certain period of time.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">Timeunlock</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xC4050C6C</span><span class="w">   </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="c1">// lock time id</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="time-relock">Time-relock</h4>
+<p>You can  relock tokens on your own account after a certain period of time.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">Timerelock</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x504711DA</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">Id</span><span class="w"> </span><span class="c1">// lock time id</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">description</span><span class="w"> </span><span class="c1">// Description of the lock</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">lock_time</span><span class="w"> </span><span class="c1">// lock time</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="htlt">HTLT</h4>
+<p>Hash Timer Locked Transfer (HTLT) is a new transaction type on Genesys Chain, to serve as HGSYS in the first step of Atomic Swap</p>
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">HTLT</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xB33F9A24</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="c1">// receiver&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">recipient_other_chain</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">sender_other_chain</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">random_number_hash</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w">  </span><span class="nx">timestamp</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="nx">expected_income</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int64</span><span class="w"> </span><span class="nx">height_span</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nx">cross_chain</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="deposit-htlt">Deposit HTLT</h4>
+<p>Deposit Hash Timer Locked Transfer is to lock new BEP2 asset to an existed HTLT which is for single chain atomic swap.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">DepositHTLT</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x63986496</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="nx">message</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nx">denom</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int64</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">repeated</span><span class="w"> </span><span class="nx">Coin</span><span class="w"> </span><span class="nx">amount</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">swap_id</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="claim-htlt">Claim HTLT</h4>
+<p>Claim Hash Timer Locked Transfer is to claim the locked asset by showing the random number value that matches the hash. Each HTLT locked asset is guaranteed to be release once.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">ClaimHTLTMsg</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0xC1665300</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">swap_id</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">random_number</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="refund-htlt">Refund HTLT</h4>
+<p>Refund Hash Timer Locked Transfer is to refund the locked asset after timelock is expired.
+<div class="highlight"><pre><span></span><code><span class="nx">message</span><span class="w"> </span><span class="nx">RefundHTLTMsg</span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mh">0x3454A27C</span><span class="w"> </span><span class="c1">// hardcoded, object type prefix in 4 bytes</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">from</span><span class="w"> </span><span class="c1">// sender&#39;s address</span><span class="w"></span>
+<span class="w">  </span><span class="nx">bytes</span><span class="w"> </span><span class="nx">swap_id</span><span class="w"></span>
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

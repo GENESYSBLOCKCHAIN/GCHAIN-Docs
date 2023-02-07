@@ -1,0 +1,2066 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GSYS Chain Technology Documentation">
+      
+      
+        <meta name="author" content="GSYS Chain Community">
+      
+      
+        <link rel="canonical" href="https://docs.genesys.network/smart-chain/wallet/wallet_api.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Wallet api - GSYS Chain Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffc105">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/dark_theme.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/codehilite.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#development-progress" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="GSYS Chain Docs" class="md-header__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GSYS Chain Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wallet api
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="GSYS Chain Docs" class="md-nav__button md-logo" aria-label="GSYS Chain Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    GSYS Chain Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GSYS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GSYS Chain
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/nc-intro.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/concepts/consensus.html" class="md-nav__link">
+        Consensus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/concepts/genesis.html" class="md-nav__link">
+        Genesis File
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Mainnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://testnet.gchainexplorer.genesys.network/" class="md-nav__link">
+        GSYS Chain Testnet Explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallet.html" class="md-nav__link">
+        Wallet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          GSYS Chain Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/create-wallet.html" class="md-nav__link">
+        Create Wallet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://solidity.readthedocs.io/en/v0.7.1/" class="md-nav__link">
+        Smart Contract
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://remix.ethereum.org/" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://web3js.readthedocs.io/en/v1.2.11/" class="md-nav__link">
+        Web3JS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.trufflesuite.com/docs/teams/quickstart" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Deploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Deploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/deploy/remix.html" class="md-nav__link">
+        Remix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/deploy/truffle.html" class="md-nav__link">
+        Truffle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/deploy/hardhat.html" class="md-nav__link">
+        HardHat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arkane-developer.html" class="md-nav__link">
+        Wallet Provider for DApps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          BLUE20 Tokens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BLUE20 Tokens" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          BLUE20 Tokens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/BLUE20.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/issue-BLUE20.html" class="md-nav__link">
+        Issue Token
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Blockchain Details
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blockchain Details" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Blockchain Details
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/fullnode.html" class="md-nav__link">
+        GSYS Chain Fullnode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/rpc.html" class="md-nav__link">
+        RPC
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/NRC721.md" class="md-nav__link">
+        Deploy NFT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer/deploy/local.html" class="md-nav__link">
+        Local Genesys Network
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Wallets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wallets" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Wallets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wallet.html" class="md-nav__link">
+        GSYS Chain Wallet Support
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bgchainexplorer.genesys.network" class="md-nav__link">
+        GSYS Chain Explorer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://faucet.genesys.network" class="md-nav__link">
+        GSYS Chain Faucet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://t.me/" class="md-nav__link">
+        The GSYS Chain Telegram Group
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          GSYS Chain FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GSYS Chain FAQ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          GSYS Chain FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_1" type="checkbox" id="__nav_9_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/general.html" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/nc.html" class="md-nav__link">
+        GSYS Chain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/eco.html" class="md-nav__link">
+        Ecosystem
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1_2">
+          Token
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Token" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Token
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/token.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/nc/blue20.md" class="md-nav__link">
+        TC20
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-progress" class="md-nav__link">
+    Development Progress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-with-metamask" class="md-nav__link">
+    Difference with MetaMask
+  </a>
+  
+    <nav class="md-nav" aria-label="Difference with MetaMask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inpage-injected-object" class="md-nav__link">
+    Inpage injected object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainrequestmethod-eth_sign-params-address-message" class="md-nav__link">
+    Genesys Chain.request({method: "eth_sign", params: ["address", "message"])
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainrequestmethod-eth_accounts" class="md-nav__link">
+    Genesys Chain.request({method: "eth_accounts"})
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upcoming-breaking-changes" class="md-nav__link">
+    Upcoming Breaking Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chain-ids" class="md-nav__link">
+    Chain IDs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainchainid" class="md-nav__link">
+    Genesys Chain.chainId
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainautorefreshonnetworkchange" class="md-nav__link">
+    Genesys Chain.autoRefreshOnNetworkChange
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainisconnected" class="md-nav__link">
+    Genesys Chain.isConnected()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainrequestargs" class="md-nav__link">
+    Genesys Chain.request(args)
+  </a>
+  
+    <nav class="md-nav" aria-label="Genesys Chain.request(args)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainbnbsignaddress-string-message-string-promisepublickey-string-signature-string" class="md-nav__link">
+    Genesys Chain.bnbSign(address: string, message: string): Promise&lt;{publicKey: string, signature: string}&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainswitchnetworknetworkid-string-promisenetworkid-string" class="md-nav__link">
+    Genesys Chain.switchNetwork(networkId: string): Promise&lt;{networkId: string}&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainrequestaccounts" class="md-nav__link">
+    Genesys Chain.requestAccounts()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chaintransferfromaddressstring-toaddressstring-assetstring-amountnumber-memo-string-sequence-number-accountidstring-networkidstring" class="md-nav__link">
+    Genesys Chain.transfer({fromAddress:string, toAddress:string, asset:string, amount:number, memo?: string, sequence?: number, accountId:string, networkId:string})&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    Events
+  </a>
+  
+    <nav class="md-nav" aria-label="Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect" class="md-nav__link">
+    connect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disconnect" class="md-nav__link">
+    disconnect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accountschanged" class="md-nav__link">
+    accountsChanged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chainchanged" class="md-nav__link">
+    chainChanged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    message
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    Errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-provider" class="md-nav__link">
+    Using the Provider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-api" class="md-nav__link">
+    Legacy API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-properties" class="md-nav__link">
+    Legacy Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Legacy Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainnetworkversion-deprecated" class="md-nav__link">
+    Genesys Chain.networkVersion (DEPRECATED)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainselectedaddress-deprecated" class="md-nav__link">
+    Genesys Chain.selectedAddress (DEPRECATED)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-methods" class="md-nav__link">
+    Legacy Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Legacy Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainenable-deprecated" class="md-nav__link">
+    Genesys Chain.enable() (DEPRECATED)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainsendasync-deprecated" class="md-nav__link">
+    Genesys Chain.sendAsync() (DEPRECATED)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genesys-chainsend-deprecated" class="md-nav__link">
+    Genesys Chain.send() (DEPRECATED)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-events" class="md-nav__link">
+    Legacy Events
+  </a>
+  
+    <nav class="md-nav" aria-label="Legacy Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#close-deprecated" class="md-nav__link">
+    close (DEPRECATED)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chainidchanged-deprecated" class="md-nav__link">
+    chainIdChanged (DEPRECATED)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networkchanged-deprecated" class="md-nav__link">
+    networkChanged (DEPRECATED)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-deprecated" class="md-nav__link">
+    notification (DEPRECATED)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/edit/master/docs/smart-chain/wallet/wallet_api.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>Wallet api</h1>
+
+<p>Genesys Chain Wallet injects a global API into websites visited by its users at <code>window.Genesys Chain</code>.</p>
+<p>This API specification borrows heavily from API MetaMask provided, considering the massive adoption. So Web3 site developers can easily connect their dApps with the Genesys Chain Wallet. The APIs allow websites to request users' Genesys Chain addresses, read data from the blockchain the user is connected to, and prompt the users to sign messages and transactions.</p>
+<p>The presence of the provider object <code>window.Genesys Chain</code> indicates a Genesys Chain/Genesys Chain user.</p>
+<p>The API this extension wallet provides includes API specified by <a href="https://eips.ethereum.org/EIPS/eip-1193">EIP-1193</a> and API defined by <a href="https://docs.metamask.io/guide/ethereum-provider.html">MetaMask</a> (including some massively relied legacy ones).</p>
+<h2 id="development-progress">Development Progress</h2>
+<p>Currently (version 1.112.8) as Genesys Chain Wallet natively supports Genesys Chain, we are planning to open a series of APIs for dApp developers to interact with Genesys Chain. At the end of the day, most <a href="https://github.com/githubusername/githubrepo/javascript-sdk/tree/master/docs">APIs available in Genesys Chain javascript sdk</a> would be available.</p>
+<p>Currently, only the following is supported:
+* <a href="https://github.com/githubusername/githubrepo/javascript-sdk/tree/master/docs#transfer-tokens"><code>transfer</code></a> </p>
+<h2 id="difference-with-metamask">Difference with MetaMask</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please read through this section if you are a web3 developer who has integrated with MetaMask and interested in integrating with Genesys Chain Wallet.</p>
+</div>
+<h3 id="inpage-injected-object">Inpage injected object</h3>
+<p>The biggest difference between Genesys Chain Wallet and MetaMask is we inject <code>Genesys Chain</code> rather than <code>ethereum</code> (or <code>web3</code>) to the web page. So user could keep two extensions at the same time.</p>
+<h3 id="genesys-chainrequestmethod-eth_sign-params-address-message">Genesys Chain.request({method: "eth_sign", params: ["address", "message"])</h3>
+<p>We haven't supported the full complex <a href="https://docs.metamask.io/guide/signing-data.html#signing-data-with-metamask">signing data</a> APIs MetaMask provided, while we only provide standard <a href="https://eth.wiki/json-rpc/API#eth_sign"><code>eth_sign</code></a> JSON-RPC call. </p>
+<p>The <code>message</code> item in params for this request on MetaMask has to be hex-encoded keccak256 hash (otherwise the API would silent failure for dapp https://www.reddit.com/r/Metamask/comments/9wp7kj/eth_sign_not_working/). In contrast, web3 developers could pass any message in plaintext to this method, and our UI would render it as it is to the wallet users.</p>
+<h3 id="genesys-chainrequestmethod-eth_accounts">Genesys Chain.request({method: "eth_accounts"})</h3>
+<p>When this API is invoked without the user's approval, MetaMask would return an empty array.</p>
+<p>In contrast, we would ask the user to unlock his wallet and return the address user connected to.</p>
+<h2 id="upcoming-breaking-changes">Upcoming Breaking Changes</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Important Information</p>
+<p>On <strong>November 16, 2020</strong>, MetaMask is making changes to their provider API that will be breaking for some web3 sites.
+These changes are <em>upcoming</em>, but you can prepare for them today.
+Follow <a href="https://github.com/MetaMask/metamask-extension/issues/8077">this GitHub issue</a> for updates.</p>
+<p>In this implementation, some APIs will be supported as <a href="#legacy-api">Legacy API</a> (For example we will still implement the <code>chainIdChanged</code> on Genesys Chain object until MetaMask formally deprecates it).</p>
+</div>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>For any non-trivial Genesys Chain web application — a.k.a. web3 site — to work, you will have to:</p>
+<ol>
+<li>Detect the Genesys Chain provider (<code>window.Genesys Chain</code>)</li>
+<li>Detect which Genesys Chain network the user is connected to</li>
+<li>Get the user's Genesys Chain account(s)</li>
+</ol>
+<p>You can learn how to accomplish the <code>2</code> and <code>3</code> from above list by reviewing the snippet in the <a href="#using-the-provider">Using the Provider section</a>.</p>
+<p>The provider API is all you need to create a full-featured web3 application.</p>
+<p>That said, many developers use a convenience library, such as ethers and web3.js, instead of using the provider directly. If you need higher-level abstractions than those provided by this API, we recommend that you use a convenience library.</p>
+<p>Today, many dApps are built on top of the higher-level API provided by <a href="https://github.com/NoahZinsmeister/web3-react">web3-react</a> or <a href="https://github.com/aragon/use-wallet">use-wallet</a> (which builds on top of web3-react). </p>
+<ul>
+<li>web3-react</li>
+</ul>
+<p>We made a tiny lib <a href="https://www.npmjs.com/package/@shree-chain/nc-connector">nc-connector</a> that implements the <a href="https://github.com/NoahZinsmeister/web3-react/blob/v6/packages/abstract-connector/src/index.ts#L4">AbstractConnector</a> interface of <a href="https://github.com/NoahZinsmeister/web3-react">web3-react</a> library. You can add this to your project in parallel with <a href="https://github.com/NoahZinsmeister/web3-react/tree/v6/packages/injected-connector">injected-connector</a> by: <code>yarn add @shree-chain/nc-connector</code> or <code>npm i @shree-chain/nc-connector</code>.</p>
+<div class="highlight"><pre><span></span><code>import { BscConnector } from &#39;@shree-chain/nc-connector&#39;
+
+export const bsc = new BscConnector({
+  supportedChainIds: [56, 97] // later on 1 ethereum mainnet and 3 ethereum ropsten will be supported
+})
+
+// invoke method on bsc e.g.
+await bsc.activate();
+await bsc.getAccount();
+await bsc.getChainId();
+</code></pre></div>
+<ul>
+<li>use-wallet</li>
+</ul>
+<p>There is an <a href="https://github.com/aragon/use-wallet/tree/master/examples/shree-chain">example</a> in use-wallet origin repo shows how to 'inject' a customized web3-react connector to <code>UseWalletProvider</code>:</p>
+<div class="highlight"><pre><span></span><code>function App() {
+  const { account, connect, reset, status } = useWallet()
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Genesys Chain Connector&lt;/h1&gt;
+      {status === &#39;disconnected&#39; ? (
+        &lt;button onClick={() =&gt; connect(&#39;bsc&#39;)}&gt;Connect&lt;/button&gt;
+      ) : (
+        &lt;button onClick={() =&gt; reset()}&gt;Disconnect&lt;/button&gt;
+      )}
+      {account &amp;&amp; &lt;p&gt;Connected as {account}&lt;/p&gt;}
+    &lt;/div&gt;
+  )
+}
+
+render(
+  &lt;UseWalletProvider
+    connectors={{
+      bsc: {
+        web3ReactConnector() {
+          return new BscConnector({ supportedChainIds: [56, 97] })
+        },
+        handleActivationError(err) {
+          if (err instanceof UserRejectedRequestError) {
+            return new ConnectionRejectedError()
+          }
+        },
+      },
+    }}
+  &gt;
+  &lt;App /&gt;
+  &lt;/UseWalletProvider&gt;,
+  document.getElementById(&#39;root&#39;)
+)
+</code></pre></div>
+<h2 id="chain-ids">Chain IDs</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At the moment, the <a href="#ethereum-chainid"><code>Genesys Chain.chainId</code></a> property and the <a href="#chainchanged"><code>chainChanged</code></a> event should be preferred over the <code>eth_chainId</code> RPC method.</p>
+<p>Their chain ID values are correctly formatted, per the table below.</p>
+<p><code>eth_chainId</code> returns an incorrectly formatted (0-padded) chain ID for the chains in the table below, e.g. <code>0x01</code> instead of <code>0x1</code>. See the <a href="#upcoming-breaking-changes">Upcoming Breaking Changes section</a> for details on when the <code>eth_chainId</code> RPC method will be fixed.</p>
+<p>Custom RPC endpoints are not affected; they always return the chain ID specified by the user.</p>
+</div>
+<p>These are the IDs of the GSYS Chains that Genesys Chain Wallet supports by default.</p>
+<table>
+<thead>
+<tr>
+<th>Hex</th>
+<th>Decimal</th>
+<th>Network</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x38</td>
+<td>56</td>
+<td>Genesys Chain Main Network (nc-mainnet)</td>
+</tr>
+<tr>
+<td>0x61</td>
+<td>97</td>
+<td>Genesys Chain Test Network (nc-testnet)</td>
+</tr>
+</tbody>
+</table>
+<p>This API can also return chain ids of GSYS Chains if users switch to them. The possible return value would be:
+| Chain Id             | Network                                  |
+| -------------------- | ---------------------------------------- |
+| GSYS-Chain-Tigris | Genesys Chain Main Network (bbc-mainnet) |
+| GSYS-Chain-Ganges | Genesys Chain Test Network (bbc-testnet) |</p>
+<h2 id="properties">Properties</h2>
+<h3 id="genesys-chainchainid">Genesys Chain.chainId</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The value of this property can change at any time, and should not be exclusively relied upon. See the <a href="#chainchanged"><code>chainChanged</code></a> event for details.</p>
+</div>
+<p><strong>NOTE:</strong> See the <a href="#chain-ids">Chain IDs section</a> for important information about the Genesys Chain Wallet provider's chain IDs.</p>
+<p>A hexadecimal string representing the current chain ID.</p>
+<h3 id="genesys-chainautorefreshonnetworkchange">Genesys Chain.autoRefreshOnNetworkChange</h3>
+<p>As the consumer of this API, it is your responsibility to handle chain changes using the <a href="#chainChanged"><code>chainChanged</code> event</a>.
+We recommend reloading the page on <code>chainChange</code> unless you have a good reason not to.</p>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-autorefreshonnetworkchange">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<p>To disable this behavior, set this property to <code>false</code> immediately after detecting the provider:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">autoRefreshOnNetworkChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h2 id="methods">Methods</h2>
+<h3 id="genesys-chainisconnected">Genesys Chain.isConnected()</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-isconnected">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">isConnected</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h3 id="genesys-chainrequestargs">Genesys Chain.request(args)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-request-args">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<p>We use this method to wrap an RPC API, Please see <a href="https://eth.wiki/json-rpc/API#json-rpc-methods">the Ethereum wiki</a>.</p>
+<p>Important methods from this API include:</p>
+<ul>
+<li><a href="https://eth.wiki/json-rpc/API#eth_accounts"><code>eth_accounts</code></a></li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_call"><code>eth_call</code></a></li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_getBalance"><code>eth_getBalance</code></a></li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_sendTransaction"><code>eth_sendTransaction</code></a></li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_sign"><code>eth_sign</code></a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">RequestArguments</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">params?</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">[]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">object</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">args</span><span class="o">:</span><span class="w"> </span><span class="kt">RequestArguments</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h4 id="example">Example</h4>
+<p>The code snippet below is as same as <a href="https://docs.metamask.io/guide/ethereum-provider.html#example">MetaMask's example</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0xb60e8dd61c5d32be8058bb8eb970870f07233155&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0xd46e8dd67c5d32be8058bb8eb970870f07244567&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">gas</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0x76c0&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 30400</span><span class="w"></span>
+<span class="w">    </span><span class="nx">gasPrice</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0x9184e72a000&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 10000000000000</span><span class="w"></span>
+<span class="w">    </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0x9184e72a&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 2441406250</span><span class="w"></span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="s1">&#39;0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">];</span><span class="w"></span>
+
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">request</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;eth_sendTransaction&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">params</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// The result varies by by RPC method.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// For example, this method will return a transaction hash hexadecimal string on success.</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// If the request fails, the Promise will reject with an error.</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h3 id="genesys-chainbnbsignaddress-string-message-string-promisepublickey-string-signature-string">Genesys Chain.bnbSign(address: string, message: string): Promise&lt;{publicKey: string, signature: string}&gt;</h3>
+<p><em>We prepared an example for this API, please check out:https://github.com/githubusername/githubrepo/js-eth-personal-sign-examples for more detail</em></p>
+<p>Like <code>eth_sign</code> enable dapp to verify a user has control over an ethereum address by signing an arbitrary message. We provide this method for dapp developers to request the signature of arbitrary messages for Genesys Chain (BC) and Genesys Chain (TC).</p>
+<p>If <code>address</code> parameter is a shree chain address (start with <code>bnb</code> or <code>tbnb</code>), we will simply <strong>calculate sha256 hash of the message</strong> and let user sign the hash with his shree chain address' private key. Note: Genesys Chain uses the same elliptic curve (<code>secp256k1</code>) as Ethereum.</p>
+<p>If <code>address</code> parameter is a Genesys Chain address (start with <code>0x</code>), the message would be hashed in the same way with <a href="https://eth.wiki/json-rpc/API#eth_sign"><code>eth_sign</code></a>.</p>
+<p>The returned <code>publicKey</code> would be a compressed encoded format (a hex string encoded 33 bytes starting with "0x02", "0x03") for Genesys Chain. And uncompressed encoded format (a hex string encoded 65 bytes starting with "0x04").</p>
+<p>The returned <code>signature</code> would be bytes encoded in hex string starting with <code>0x</code>. For Genesys Chain, its r,s catenated 64 bytes in total. For Genesys Chain, like <code>eth_sign</code>, its r, s catenated 64 bytes and a recover byte in the end.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>DApp developers should verify whether the returned public key can be converted into the address user claimed in addition to an ECDSA signature verification. Because any plugin can inject the same object <code>Genesys Chain</code> as Genesys Chain Wallet.</p>
+</div>
+<h3 id="genesys-chainswitchnetworknetworkid-string-promisenetworkid-string">Genesys Chain.switchNetwork(networkId: string): Promise&lt;{networkId: string}&gt;</h3>
+<p>As Genesys Chain Wallet natively supports Genesys Chain and Genesys Chain which are heterogeneous blockchains run in parallel. APIs would be different in any situation. (We would open APIs for Genesys Chain very soon).</p>
+<p>Developers could judge which network is selected by user currently via <code>Genesys Chain.chainId</code> or listening to the <code>chainChanged</code> event via <code>Genesys Chain.on('chainChanged', callback)</code>.</p>
+<p>To request for network switching, developers could invoke this API with <code>bbc-mainnet</code> (Genesys Chain Main Network), <code>nc-mainnet</code> (Genesys Chain Main Network), <code>bbc-testnet</code> (Genesys Chain Test Network), <code>nc-testnet</code> (Genesys Chain Test Network) to prompt user to agree on network switching.</p>
+<h3 id="genesys-chainrequestaccounts">Genesys Chain.requestAccounts()</h3>
+<p>Request all accounts maintained by this extension.</p>
+<p>The <code>id</code> in response would be used as <code>accountId</code> for the APIs for Genesys Chain. </p>
+<p>This method would return an array of Account:
+<div class="highlight"><pre><span></span><code>{
+  addresses: [{address: string, type: string}],
+  icon: string,
+  id: string,
+  name: string
+}
+</code></pre></div></p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>[
+    {
+        &quot;id&quot;:&quot;fba0b0ce46c7f79cd7cd91cdd732b6c699440acf8c539d7e7d753d38c9deea544230e51899d5d9841b8698b74a3c77b79e70d686c76cb35dca9cac0e615628ed&quot;,
+        &quot;name&quot;:&quot;Account 1&quot;,
+        &quot;icon&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InNjLXBraElSIGhnRUNmUyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iOCIgZmlsbD0iI2ZjNmU3NSI+PC9yZWN0Pjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFlMjAyNiIgc3R5bGU9ImZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtZmFtaWx5OkJpbmFuY2VQbGV4LCAtYXBwbGUtc3lzdGVgsysAmI3gyNzsuU0ZOU1RleHQtUmVndWxhciYjeDI3OywgJiN4Mjc7U2FuIEZyYW5jaXNjbyYjeDI3OywKQmxpbmtNYWNTeXN0ZW1Gb250LCAmI3gyNzsuUGluZ0ZhbmctU0MtUmVndWxhciYjeDI3OywgJiN4Mjc7TWljcm9zb2Z0IFlhSGVpJiN4Mjc7LCAmI3gyNztTZWdvZSBVSSYjeDI3OywgJiN4Mjc7SGVsdmV0aWNhIE5ldWUmI3gyNzssCkhlbHZldGljYSwgQXJpYWwsIHNhbnMtc2VyaWYiPkE8L3RleHQ+PC9zdmc+&quot;,
+        &quot;addresses&quot;:[
+            {
+                &quot;type&quot;:&quot;bbc-testnet&quot;,
+                &quot;address&quot;:&quot;tbnb1akt8vgstdaz8pax5zgykzee5u9kamjdkkcf2dw&quot;
+            },
+            {
+                &quot;type&quot;:&quot;bbc-mainnet&quot;,
+                &quot;address&quot;:&quot;bnb1akt8vgstdaz8pax5zgykzee5u9kamjdkcdqwdl&quot;
+            },
+            {
+                &quot;type&quot;:&quot;eth&quot;,
+                &quot;address&quot;:&quot;0x43364696e478E344E95831CE8427623202e5CBFb&quot;
+            }
+        ]
+    }
+]
+</code></pre></div></p>
+<h3 id="genesys-chaintransferfromaddressstring-toaddressstring-assetstring-amountnumber-memo-string-sequence-number-accountidstring-networkidstring">Genesys Chain.transfer({fromAddress:string, toAddress:string, asset:string, amount:number, memo?: string, sequence?: number, accountId:string, networkId:string})&gt;</h3>
+<p>Transfer certain <code>amount</code> of <code>asset</code> (GSYS or BEP2) on Genesys Chain.</p>
+<p><code>accountId</code> could be retrieved from the <code>Genesys Chain.requestAccounts</code> API (<code>id</code> field of each account)</p>
+<p><code>networkId</code> could be <code>bbc-mainnet</code> or <code>bbc-testnet</code></p>
+<p>For example:</p>
+<ol>
+<li>
+<p>This will ask the user's approval for transferring 1 GSYS to himself.
+<code>Genesys Chain.transfer({fromAddress:"tbnb1sndxdzsg42jg8lc0hehx8dzzpyfxrvq937mt0w", toAddress:"tbnb1sndxdzsg42jg8lc0hehx8dzzpyfxrvq937mt0w", asset:"GSYS", amount:1, accountId:"fba0b0ce46c7f79cd7cd91cdd732b6c699440acf8c539d7e7d753d38c9deea544230e51899d5d9841b8698b74a3c77b79e70d686c76cb35dca9cac0e615628ed", networkId:"bbc-testnet"})</code></p>
+</li>
+<li>
+<p>This will ask the user's approval for transferring 1 BUSD to himself.
+<code>Genesys Chain.transfer({fromAddress:"tbnb1sndxdzsg42jg8lc0hehx8dzzpyfxrvq937mt0w", toAddress:"tbnb1sndxdzsg42jg8lc0hehx8dzzpyfxrvq937mt0w", asset:"BUSD-BAF", amount:1, accountId:"fba0b0ce46c7f79cd7cd91cdd732b6c699440acf8c539d7e7d753d38c9deea544230e51899d5d9841b8698b74a3c77b79e70d686c76cb35dca9cac0e615628ed", networkId:"bbc-testnet"})</code></p>
+</li>
+</ol>
+<h2 id="events">Events</h2>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#events">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;accountsChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">accounts</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Handle the new accounts, or lack thereof.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// &quot;accounts&quot; will always be an array, but it can be empty.</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;chainChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">chainId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Handle the new chain.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Correctly handling chain changes can be complicated.</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// We recommend reloading the page unless you have a very good reason not to.</span><span class="w"></span>
+<span class="w">  </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h3 id="connect">connect</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#connect">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">ConnectInfo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">connectInfo</span><span class="o">:</span><span class="w"> </span><span class="kt">ConnectInfo</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="disconnect">disconnect</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#disconnect">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kt">ProviderRpcError</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="accountschanged">accountsChanged</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#accountschanged">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;accountsChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">accounts</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="chainchanged">chainChanged</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#chainchanged">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;chainChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;chainChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">_chainId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">());</span><span class="w"></span>
+</code></pre></div>
+<h3 id="message">message</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#message">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">ProviderMessage</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">ProviderMessage</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h2 id="errors">Errors</h2>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#errors">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<h2 id="using-the-provider">Using the Provider</h2>
+<p>This snippet explains how to accomplish the three most common requirements for web3 sites:</p>
+<ul>
+<li>Detect which Genesys Chain network the user is connected to</li>
+<li>Get the user's Genesys Chain account(s)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>/**********************************************************/
+/* Handle chain (network) and chainChanged (per EIP-1193) */
+/**********************************************************/
+
+// Normally, we would recommend the &#39;eth_chainId&#39; RPC method, but it currently
+// returns incorrectly formatted chain ID values.
+let currentChainId = Genesys Chain.chainId;
+
+Genesys Chain.on(&#39;chainChanged&#39;, handleChainChanged);
+
+function handleChainChanged(_chainId) {
+  // We recommend reloading the page, unless you must do otherwise
+  window.location.reload();
+}
+
+/***********************************************************/
+/* Handle user accounts and accountsChanged (per EIP-1193) */
+/***********************************************************/
+
+let currentAccount = null;
+Genesys Chain
+  .request({ method: &#39;eth_accounts&#39; })
+  .then(handleAccountsChanged)
+  .catch((err) =&gt; {
+    // Some unexpected error.
+    // For backwards compatibility reasons, if no accounts are available,
+    // eth_accounts will return an empty array.
+    console.error(err);
+  });
+
+// Note that this event is emitted on page load.
+// If the array of accounts is non-empty, you&#39;re already
+// connected.
+Genesys Chain.on(&#39;accountsChanged&#39;, handleAccountsChanged);
+
+// For now, &#39;eth_accounts&#39; will continue to always return an array
+function handleAccountsChanged(accounts) {
+  if (accounts.length === 0) {
+    // Genesys Chain Wallet is locked or the user has not connected any accounts
+    console.log(&#39;Please connect to Genesys Chain Wallet.&#39;);
+  } else if (accounts[0] !== currentAccount) {
+    currentAccount = accounts[0];
+    // Do any other work!
+  }
+}
+
+/*********************************************/
+/* Access the user&#39;s accounts (per EIP-1102) */
+/*********************************************/
+
+// You should only attempt to request the user&#39;s accounts in response to user
+// interaction, such as a button click.
+// Otherwise, you popup-spam the user like it&#39;s 1999.
+// If you fail to retrieve the user&#39;s account(s), you should encourage the user
+// to initiate the attempt.
+document.getElementById(&#39;connectButton&#39;, connect);
+
+function connect() {
+  Genesys Chain
+    .request({ method: &#39;eth_requestAccounts&#39; })
+    .then(handleAccountsChanged)
+    .catch((err) =&gt; {
+      if (err.code === 4001) {
+        // EIP-1193 userRejectedRequest error
+        // If this happens, the user rejected the connection request.
+        console.log(&#39;Please connect to MetaMask.&#39;);
+      } else {
+        console.error(err);
+      }
+    });
+}
+</code></pre></div>
+<h2 id="legacy-api">Legacy API</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You should <strong>never</strong> rely on any of these methods, properties, or events in practice.</p>
+</div>
+<p>This section documents MetaMask's legacy provider API.</p>
+<p>To be compatible with existing dApps that support MetaMask, Genesys Chain Wallet implements them as well, but please don't rely on them. We may deprecate them soon in the future.</p>
+<h2 id="legacy-properties">Legacy Properties</h2>
+<h3 id="genesys-chainnetworkversion-deprecated">Genesys Chain.networkVersion (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#legacy-properties">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<h3 id="genesys-chainselectedaddress-deprecated">Genesys Chain.selectedAddress (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-selectedaddress-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<h2 id="legacy-methods">Legacy Methods</h2>
+<h3 id="genesys-chainenable-deprecated">Genesys Chain.enable() (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-enable-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<h3 id="genesys-chainsendasync-deprecated">Genesys Chain.sendAsync() (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-sendasync-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">JsonRpcRequest</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">jsonrpc</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2.0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">params?</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">JsonRpcResponse</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">jsonrpc</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2.0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">result?</span><span class="o">:</span><span class="w"> </span><span class="kt">unknown</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">error?</span><span class="o">:</span><span class="w"> </span><span class="kt">Error</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">JsonRpcCallback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kt">Error</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonRpcResponse</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">unknown</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">sendAsync</span><span class="p">(</span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonRpcRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonRpcCallback</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h3 id="genesys-chainsend-deprecated">Genesys Chain.send() (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#ethereum-send-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="nx">methodOrPayload</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">JsonRpcRequest</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">paramsOrCallback</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">JsonRpcCallback</span><span class="p">,</span><span class="w"></span>
+<span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">JsonRpcResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>This method behaves unpredictably and should be avoided at all costs.
+It is essentially an overloaded version of <a href="#Genesys Chain-sendasync-deprecated"><code>Genesys Chain.sendAsync()</code></a>.</p>
+<p><code>Genesys Chain.send()</code> can be called in three different ways:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1.</span><span class="w"></span>
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonRpcRequest</span><span class="p">,</span><span class="w"> </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonRpcCallback</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// 2.</span><span class="w"></span>
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">params?</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="nx">unknown</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">JsonRpcResponse</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// 3.</span><span class="w"></span>
+<span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">JsonRpcRequest</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">unknown</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>You can think of these signatures as follows:</p>
+<ol>
+<li>
+<p>This signature is exactly like <code>Genesys Chain.sendAsync()</code></p>
+</li>
+<li>
+<p>This signature is like an async <code>Genesys Chain.sendAsync()</code> with <code>method</code> and <code>params</code> as arguments, instead of a JSON-RPC payload and callback</p>
+</li>
+<li>
+<p>This signature enables you to call the following RPC methods synchronously:</p>
+</li>
+<li>
+<p><code>eth_accounts</code></p>
+</li>
+<li><code>eth_coinbase</code></li>
+<li><code>eth_uninstallFilter</code></li>
+<li><code>net_version</code></li>
+</ol>
+<h2 id="legacy-events">Legacy Events</h2>
+<h3 id="close-deprecated">close (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#close-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kt">Error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="chainidchanged-deprecated">chainIdChanged (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#chainidchanged-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;chainChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="networkchanged-deprecated">networkChanged (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#networkchanged-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;networkChanged&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">networkId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h3 id="notification-deprecated">notification (DEPRECATED)</h3>
+<p>Please refer to <a href="https://docs.metamask.io/guide/ethereum-provider.html#notification-deprecated">MetaMask Doc</a>, the only difference is we injected a different object.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Genesys</span><span class="w"> </span><span class="nx">Chain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;notification&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">payload</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
